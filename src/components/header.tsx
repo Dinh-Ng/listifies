@@ -1,8 +1,16 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
+
 const Header = () => {
+  const pathname = usePathname()
+
   return (
     <header className="mb-4 flex items-center justify-between">
       <div className="flex items-center">
-        <h1 className="mr-4 text-xl font-bold">Listifies</h1>
+        <a href="/">
+          <h1 className="mr-4 text-4xl font-bold">Listifies</h1>
+        </a>
         <div className="relative">
           <input
             type="text"
@@ -13,13 +21,22 @@ const Header = () => {
         </div>
       </div>
       <nav className="flex items-center space-x-6">
-        <a href="/" className="font-bold text-black">
+        <a
+          href="/"
+          className={`text-gray-600 ${pathname === '/' ? 'font-bold' : ''}`}
+        >
           Home
         </a>
-        <a href="/blogs" className="text-gray-600">
+        <a
+          href="/blogs"
+          className={`text-gray-600 ${pathname === '/blogs' ? 'font-bold' : ''}`}
+        >
           Blogs
         </a>
-        <a href="#" className="text-gray-600">
+        <a
+          href="#"
+          className={`text-gray-600 ${pathname === '/listings' ? 'font-bold' : ''}`}
+        >
           Listings <i className="fas fa-caret-down"></i>
         </a>
         <i className="fas fa-user-circle text-2xl text-gray-600"></i>
