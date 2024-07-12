@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Layout from '@/components/layout'
 
 import BlogItem from './blogs/components/blogItem'
-import { blogs } from './blogs/page'
+import { blogs } from '@/asset/data/fakeData'
 
 export default function Home() {
   return (
