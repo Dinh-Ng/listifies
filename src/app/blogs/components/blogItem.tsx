@@ -1,7 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 
-export default function BlogItem({blog, index}) {
+type Props = {
+  index: number
+  blog: {
+    title: string,
+    author: string,
+    date: string,
+    category: string,
+    language: string,
+    imageUrl: string,
+    width: number,
+    height: number,
+  }
+}
+
+export default function BlogItem({ blog, index }: Props) {
   return (
     <Link
       key={index}
