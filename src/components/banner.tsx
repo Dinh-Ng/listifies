@@ -7,7 +7,6 @@ export default function Banner() {
 
   return (
     <aside>
-      {/* <h2 className="mb-2 text-lg font-bold">Banners</h2> */}
       {banners.map((banner, index) => (
         <div key={index} className="mb-4 border p-4">
           <p>{banner.text}</p>
