@@ -2,6 +2,9 @@ import Banner from '@/components/banner'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 
+import BlogItem from './blogs/components/blogItem'
+import { blogs } from './blogs/page'
+
 export default function Home() {
   return (
     <Layout>
@@ -17,6 +20,10 @@ export default function Home() {
           </div>
           <div className="border p-4">
             <p>Blogs</p>
+
+            {blogs.map((blog, index) => (
+              <BlogItem blog={blog} key={index} index={index} />
+            ))}
           </div>
         </section>
         <Banner />
