@@ -37,3 +37,6 @@ next-env.d.ts
 
 # Vscode settings
 .vscode
+
+# Cache
+.yarn/cache
