@@ -10,7 +10,7 @@ import Layout from '@/components/layout'
 export default function DetailBlog() {
   return (
     <Layout>
-      <Header />
+      <Header href={'blogs'} />
       <div className="mx-auto">
         {/* Main Content */}
         <main className="relative py-2">
