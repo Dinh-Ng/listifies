@@ -54,29 +54,29 @@ export default function DetailListing() {
                   <CardContent>
                     <h1 className="mb-3">Description</h1>
 
-                    <div class="grid grid-cols-3 gap-1">
-                      <div class="col-span-3 w-full">
+                    <div className="grid grid-cols-3 gap-1">
+                      <div className="col-span-3 w-full">
                         <img
                           src="https://placehold.co/500x150"
                           alt="Image"
                           className="w-full"
                         />
                       </div>
-                      <div class="">
+                      <div className="">
                         <img
                           src="https://placehold.co/250x150"
                           alt="Image"
                           className=""
                         />
                       </div>
-                      <div class="">
+                      <div className="">
                         <img
                           src="https://placehold.co/250x150"
                           alt="Image"
                           className=""
                         />
                       </div>
-                      <div class="">
+                      <div className="">
                         <img
                           src="https://placehold.co/250x150"
                           alt="Image"
