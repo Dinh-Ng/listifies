@@ -1,3 +1,5 @@
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card'
+
 export default function Banner() {
   const banners = [
     { text: '1% Down & 2% Grant', link: '#', linkText: 'Learn More' },
@@ -8,12 +10,14 @@ export default function Banner() {
   return (
     <aside>
       {banners.map((banner, index) => (
-        <div key={index} className="mb-4 border p-4">
-          <p>{banner.text}</p>
+        <Card key={index} className="mb-4 border">
+          <CardHeader>
+            <CardTitle>{banner.text}</CardTitle></CardHeader>
+          <CardContent>
           <a href={banner.link} className="font-bold text-blue-500">
             {banner.linkText}
-          </a>
-        </div>
+          </a></CardContent>
+        </Card>
       ))}
     </aside>
   )
