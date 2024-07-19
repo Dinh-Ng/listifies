@@ -14,18 +14,18 @@ export default function DetailBlog() {
       <Header href={'/blogs'} />
       {/*<div className="mx-auto">*/}
       {/* Main Content */}
-      <main className="bg-muted/40 w-full py-2">
+      <main className="bg-muted/40 w-full pb-2">
         <div className="flex h-32 w-full flex-col items-center bg-[#fef5da] px-2 pt-2">
           <div className="w-full px-4 md:px-6 lg:w-10/12">
-            <h1 className="mb-4 text-3xl font-bold">
-              Blog Detail Page - Post Title
-            </h1>
             <div className="grid gap-4 md:grid-cols-[280px_1fr] lg:grid-cols-[350px_1fr]">
               <AuthorInfo />
               <div className="grid">
+                <h1 className="mb-2 text-3xl font-bold">
+                  Blog Detail Page - Post Title
+                </h1>
                 <section className="mb-6 rounded">
                   <div className="relative">
-                    <div className="absolute left-2 top-2 flex items-center space-x-4">
+                    <div className="absolute left-0 top-0 flex w-full items-center space-x-4 bg-gradient-to-b from-black p-2">
                       <img
                         src="https://placehold.co/150x150"
                         alt="Author Image"

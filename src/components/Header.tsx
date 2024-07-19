@@ -31,11 +31,11 @@ const Header = ({ href = '/' }: { href: string }) => {
           {/*  <Package2 className="size-6" />*/}
           {/*  <span className="sr-only">Acme Inc</span>*/}
           {/*</Link>*/}
-          <Link href="#" className="hover:text-foreground text-xl">
+          <Link href="/" className="hover:text-foreground text-xl">
             Listifies
           </Link>
           <Link
-            href="#"
+            href="/"
             className={
               (isCurrentHref('/')
                 ? 'text-foreground'
@@ -57,7 +57,7 @@ const Header = ({ href = '/' }: { href: string }) => {
             Blogs
           </Link>
           <Link
-            href="#"
+            href={'/listings'}
             className={
               (isCurrentHref('/listings')
                 ? 'text-foreground'
@@ -82,28 +82,31 @@ const Header = ({ href = '/' }: { href: string }) => {
           <SheetContent side="left">
             <nav className="grid gap-6 text-lg font-medium">
               {/* <Link
-              href="#"
+              href="/"
               className="flex items-center gap-2 text-lg font-semibold"
             >
               <Package2 className="size-6" />
               <span className="sr-only">Listifies</span>
             </Link> */}
-              <Link href="#" className="hover:text-foreground text-xl">
+              <Link href="/" className="hover:text-foreground text-xl">
                 Listifies
               </Link>
               <Link
-                href="#"
+                href="/"
                 className="text-muted-foreground hover:text-foreground text-base"
               >
                 Home
               </Link>
               <Link
-                href="#"
+                href={'/blogs'}
                 className="text-muted-foreground hover:text-foreground text-base"
               >
                 Blogs
               </Link>
-              <Link href="#" className="hover:text-foreground text-base">
+              <Link
+                href={'/listings'}
+                className="hover:text-foreground text-base"
+              >
                 Listings
               </Link>
             </nav>
