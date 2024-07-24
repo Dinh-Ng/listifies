@@ -26,8 +26,7 @@ export default function DetailListing() {
       <main className="bg-muted/40 w-full py-2">
         <div className="flex h-32 w-full flex-col items-center px-2 pt-2">
           <div className="w-full px-4 md:px-6 lg:w-10/12">
-            <div className="grid gap-4 md:grid-cols-[280px_1fr] lg:grid-cols-[350px_1fr]">
-              <AuthorInfo />
+            <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
               <div className="">
                 <h1 className="mb-2 text-3xl font-bold">Properties</h1>
 
@@ -37,7 +36,7 @@ export default function DetailListing() {
                     <CardDescription>
                       <div className="flex justify-between text-lg">
                         <p>1000$ | #bed | #bath</p>
-                        <Collapsible className='flex flex-col items-end justify-end'>
+                        <Collapsible className="flex flex-col items-end justify-end">
                           <CollapsibleTrigger>Contact Info</CollapsibleTrigger>
                           <CollapsibleContent>
                             <Card className="p-2">
@@ -66,27 +65,28 @@ export default function DetailListing() {
                         <img
                           src="https://placehold.co/250x150"
                           alt="Image"
-                          className=""
+                          className="w-full"
                         />
                       </div>
                       <div className="">
                         <img
                           src="https://placehold.co/250x150"
                           alt="Image"
-                          className=""
+                          className="w-full"
                         />
                       </div>
                       <div className="">
                         <img
                           src="https://placehold.co/250x150"
                           alt="Image"
-                          className=""
+                          className="w-full"
                         />
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </div>
+              <AuthorInfo />
             </div>
           </div>
         </div>

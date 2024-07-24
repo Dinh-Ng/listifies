@@ -17,8 +17,7 @@ export default function DetailBlog() {
       <main className="bg-muted/40 w-full pb-2">
         <div className="flex h-32 w-full flex-col items-center bg-[#fef5da] px-2 pt-2">
           <div className="w-full px-4 md:px-6 lg:w-10/12">
-            <div className="grid gap-4 md:grid-cols-[280px_1fr] lg:grid-cols-[350px_1fr]">
-              <AuthorInfo />
+            <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
               <div className="grid">
                 <h1 className="mb-2 text-3xl font-bold">
                   Blog Detail Page - Post Title
@@ -55,6 +54,7 @@ export default function DetailBlog() {
                   </p>
                 </article>
               </div>
+              <AuthorInfo />
             </div>
           </div>
         </div>
