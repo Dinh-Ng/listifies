@@ -23,7 +23,7 @@ export default function ListingItem({ listing, index }: Props) {
     <Link
       key={index}
       href={`/listings/${index}`}
-      className="mb-4 flex flex-col items-start rounded-md border p-4 md:flex-row"
+      className="bg-muted/40 mb-4 flex flex-col items-start rounded-md p-4 md:flex-row"
     >
       <img
         src={listing.imageUrl}

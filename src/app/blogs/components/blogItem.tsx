@@ -20,7 +20,7 @@ export default function BlogItem({ blog, index }: Props) {
     <Link
       key={index}
       href={`/blogs/${index}`}
-      className="mb-4 flex flex-col items-start rounded-md border p-4 md:flex-row"
+      className="bg-muted/40 mb-4 flex flex-col items-start rounded-md p-4 md:flex-row"
     >
       <img
         src={blog.imageUrl}
