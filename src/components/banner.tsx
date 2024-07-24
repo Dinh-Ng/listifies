@@ -9,6 +9,7 @@ export default function Banner() {
 
   return (
     <aside>
+      <h1 className={'mb-6 text-xl font-semibold'}>News</h1>
       {banners.map((banner, index) => (
         <Card key={index} className="mb-4 border">
           <CardHeader>

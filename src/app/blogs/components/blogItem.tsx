@@ -32,7 +32,7 @@ export default function BlogItem({ blog, index }: Props) {
       <div>
         <h2 className="text-lg font-bold">{blog.title}</h2>
         <p>
-          {blog.author} | {blog.date}
+          {blog.author} | Published {blog.date}
         </p>
         <p>
           {blog.category} | {blog.language}
