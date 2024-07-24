@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card'
 import Banner from '@/components/banner'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
+import Transition from '@/components/Transition'
 
 export default function DetailBlog() {
   return (
@@ -15,49 +16,51 @@ export default function DetailBlog() {
       {/*<div className="mx-auto">*/}
       {/* Main Content */}
       <main className="bg-muted/40 w-full pb-2">
-        <div className="flex h-32 w-full flex-col items-center bg-[#fef5da] px-2 pt-2">
-          <div className="w-full px-4 md:px-6 lg:w-10/12">
-            <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
-              <div className="grid">
-                <h1 className="mb-2 text-3xl font-bold">
-                  Blog Detail Page - Post Title
-                </h1>
-                <section className="mb-6 rounded">
-                  <div className="relative">
-                    <div className="absolute left-0 top-0 flex w-full items-center space-x-4 bg-gradient-to-b from-black p-2">
-                      <img
-                        src="https://placehold.co/150x150"
-                        alt="Author Image"
-                        className="size-12 rounded-full"
-                      />
-                      <div className="text-sm">
-                        <p className="font-bold text-white">
-                          Author | Published mm-dd-yyyy
-                        </p>
-                        <p className="text-white">#tagName</p>
+        <Transition>
+          <div className="flex h-32 w-full flex-col items-center bg-[#fef5da] px-2 pt-2">
+            <div className="w-full px-4 md:px-6 lg:w-10/12">
+              <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
+                <div className="grid">
+                  <h1 className="mb-2 text-3xl font-bold">
+                    Blog Detail Page - Post Title
+                  </h1>
+                  <section className="mb-6 rounded">
+                    <div className="relative">
+                      <div className="absolute left-0 top-0 flex w-full items-center space-x-4 bg-gradient-to-b from-black p-2">
+                        <img
+                          src="https://placehold.co/150x150"
+                          alt="Author Image"
+                          className="size-12 rounded-full"
+                        />
+                        <div className="text-sm">
+                          <p className="font-bold text-white">
+                            Author | Published mm-dd-yyyy
+                          </p>
+                          <p className="text-white">#tagName</p>
+                        </div>
                       </div>
+                      <Image
+                        alt="Post Image"
+                        src={houseImg}
+                        className="h-auto w-full rounded"
+                      />
                     </div>
-                    <Image
-                      alt="Post Image"
-                      src={houseImg}
-                      className="h-auto w-full rounded"
-                    />
-                  </div>
-                </section>
-                <article className="prose max-w-none">
-                  <p>
-                    <strong>Lorem Ipsum</strong> is simply dummy text of the
-                    printing and typesetting industry. Lorem Ipsum has been the
-                    industry&apos;s standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled
-                    it to make a type specimen book. It has
-                  </p>
-                </article>
+                  </section>
+                  <article className="prose max-w-none">
+                    <p>
+                      <strong>Lorem Ipsum</strong> is simply dummy text of the
+                      printing and typesetting industry. Lorem Ipsum has been
+                      the industry&apos;s standard dummy text ever since the
+                      1500s, when an unknown printer took a galley of type and
+                      scrambled it to make a type specimen book. It has
+                    </p>
+                  </article>
+                </div>
+                <AuthorInfo />
               </div>
-              <AuthorInfo />
             </div>
           </div>
-        </div>
+        </Transition>
       </main>
       {/*</div>*/}
     </Layout>

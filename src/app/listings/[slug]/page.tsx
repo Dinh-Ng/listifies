@@ -16,6 +16,7 @@ import {
 import Banner from '@/components/banner'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
+import Transition from '@/components/Transition'
 
 export default function DetailListing() {
   return (
@@ -24,72 +25,76 @@ export default function DetailListing() {
       {/*<div className="mx-auto">*/}
       {/* Main Content */}
       <main className="bg-muted/40 w-full py-2">
-        <div className="flex h-32 w-full flex-col items-center px-2 pt-2">
-          <div className="w-full px-4 md:px-6 lg:w-10/12">
-            <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
-              <div className="">
-                <h1 className="mb-2 text-3xl font-bold">Properties</h1>
+        <Transition>
+          <div className="flex h-32 w-full flex-col items-center px-2 pt-2">
+            <div className="w-full px-4 md:px-6 lg:w-10/12">
+              <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
+                <div className="">
+                  <h1 className="mb-2 text-3xl font-bold">Properties</h1>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Home Address</CardTitle>
-                    <CardDescription>
-                      <div className="flex justify-between text-lg">
-                        <p>1000$ | #bed | #bath</p>
-                        <Collapsible className="flex flex-col items-end justify-end">
-                          <CollapsibleTrigger>Contact Info</CollapsibleTrigger>
-                          <CollapsibleContent>
-                            <Card className="p-2">
-                              <p>Name: Nicole</p>
-                              <p>Phone: 0123456789</p>
-                              <p>Email: micole@gmail.com</p>
-                            </Card>
-                          </CollapsibleContent>
-                        </Collapsible>
-                      </div>
-                    </CardDescription>
-                  </CardHeader>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Home Address</CardTitle>
+                      <CardDescription>
+                        <div className="flex justify-between text-lg">
+                          <p>1000$ | #bed | #bath</p>
+                          <Collapsible className="flex flex-col items-end justify-end">
+                            <CollapsibleTrigger>
+                              Contact Info
+                            </CollapsibleTrigger>
+                            <CollapsibleContent>
+                              <Card className="p-2">
+                                <p>Name: Nicole</p>
+                                <p>Phone: 0123456789</p>
+                                <p>Email: micole@gmail.com</p>
+                              </Card>
+                            </CollapsibleContent>
+                          </Collapsible>
+                        </div>
+                      </CardDescription>
+                    </CardHeader>
 
-                  <CardContent>
-                    <h1 className="mb-3">Description</h1>
+                    <CardContent>
+                      <h1 className="mb-3">Description</h1>
 
-                    <div className="grid grid-cols-3 gap-1">
-                      <div className="col-span-3 w-full">
-                        <img
-                          src="https://placehold.co/500x150"
-                          alt="Image"
-                          className="w-full"
-                        />
+                      <div className="grid grid-cols-3 gap-1">
+                        <div className="col-span-3 w-full">
+                          <img
+                            src="https://placehold.co/500x150"
+                            alt="Image"
+                            className="w-full"
+                          />
+                        </div>
+                        <div className="">
+                          <img
+                            src="https://placehold.co/250x150"
+                            alt="Image"
+                            className="w-full"
+                          />
+                        </div>
+                        <div className="">
+                          <img
+                            src="https://placehold.co/250x150"
+                            alt="Image"
+                            className="w-full"
+                          />
+                        </div>
+                        <div className="">
+                          <img
+                            src="https://placehold.co/250x150"
+                            alt="Image"
+                            className="w-full"
+                          />
+                        </div>
                       </div>
-                      <div className="">
-                        <img
-                          src="https://placehold.co/250x150"
-                          alt="Image"
-                          className="w-full"
-                        />
-                      </div>
-                      <div className="">
-                        <img
-                          src="https://placehold.co/250x150"
-                          alt="Image"
-                          className="w-full"
-                        />
-                      </div>
-                      <div className="">
-                        <img
-                          src="https://placehold.co/250x150"
-                          alt="Image"
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
+                <AuthorInfo />
               </div>
-              <AuthorInfo />
             </div>
           </div>
-        </div>
+        </Transition>
       </main>
       {/*</div>*/}
     </Layout>
