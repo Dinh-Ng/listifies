@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image'
-import houseImg from '@/asset/img/house.webp'
+// import houseImg from '@/asset/img/house.webp'
 import { Mail, Phone } from 'lucide-react'
 
 import { Card } from '@/components/ui/card'
@@ -17,14 +16,21 @@ export default function DetailBlog() {
       {/* Main Content */}
       <main className="bg-muted/40 w-full pb-2">
         <Transition>
-          <div className="flex h-32 w-full flex-col items-center bg-[#fef5da] px-2 pt-2">
+          <div
+            className="flex h-36 w-full flex-col items-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500
+ px-2 py-6"
+          >
             <div className="w-full px-4 md:px-6 lg:w-10/12">
               <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
-                <div className="grid">
+                <div className="">
                   <h1 className="mb-2 text-3xl font-bold">
                     Blog Detail Page - Post Title
                   </h1>
-                  <section className="mb-6 rounded">
+                  <div className="text-base font-bold text-[#505050]">
+                    <p className="font-bold ">Author | Published mm-dd-yyyy</p>
+                    <p className="">#tagName</p>
+                  </div>
+                  {/* <section className="mb-6 rounded">
                     <div className="relative">
                       <div className="absolute left-0 top-0 flex w-full items-center space-x-4 bg-gradient-to-b from-black p-2">
                         <img
@@ -45,8 +51,9 @@ export default function DetailBlog() {
                         className="h-auto w-full rounded"
                       />
                     </div>
-                  </section>
-                  <article className="prose max-w-none">
+                  </section> */}
+                  <section />
+                  <article className="prose mt-10 max-w-none">
                     <p>
                       <strong>Lorem Ipsum</strong> is simply dummy text of the
                       printing and typesetting industry. Lorem Ipsum has been
