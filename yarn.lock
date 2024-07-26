@@ -2159,6 +2159,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"embla-carousel-react@npm:^8.1.7":
+  version: 8.1.7
+  resolution: "embla-carousel-react@npm:8.1.7"
+  dependencies:
+    embla-carousel: 8.1.7
+    embla-carousel-reactive-utils: 8.1.7
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.1 || ^18.0.0
+  checksum: 47c605c0e5da55b510578b8a5da46f7318e86a97a1e856179bdb2ee2388a2c86c3429080239cd8721ed8d2ecb2816f7cee93e04e84e25355553e6bd5c3248f07
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.1.7":
+  version: 8.1.7
+  resolution: "embla-carousel-reactive-utils@npm:8.1.7"
+  peerDependencies:
+    embla-carousel: 8.1.7
+  checksum: 2c4875f6a4d1c86381bafaabd1e9892c44df1a46ab8fdaa83084a90a6a764af01961c0d0417bfab3b667d3b2e34f95a9ec06d6c9d7266e6f7f1fdec6a954984c
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.1.7":
+  version: 8.1.7
+  resolution: "embla-carousel@npm:8.1.7"
+  checksum: 9ce97b170275dfc545493799d171a617fa7a18a369c8020f52feafe52483beb457df9559dcc5402bc1e825080f3bc2aa899507fe06eb537665a891d030dfa059
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -3702,6 +3730,7 @@ __metadata:
     "@types/react-dom": ^18
     class-variance-authority: ^0.7.0
     clsx: ^2.1.1
+    embla-carousel-react: ^8.1.7
     eslint: ^8
     eslint-config-next: 14.2.4
     eslint-config-prettier: ^9.1.0
@@ -3713,6 +3742,7 @@ __metadata:
     prettier: ^3.3.2
     react: ^18
     react-dom: ^18
+    react-icons: ^5.2.1
     tailwind-merge: ^2.3.0
     tailwindcss: ^3.4.1
     tailwindcss-animate: ^1.0.7
@@ -4505,6 +4535,15 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: 298954ecd8f78288dcaece05e88b570014d8f6dce5db6f66e6ee91448debeb59dcd31561dddb354eee47e6c1bb234669459060deb238ed0213497146e555a0b9
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-icons@npm:5.2.1"
+  peerDependencies:
+    react: "*"
+  checksum: f084ea7409a3986c03b7805d0787d8526e2c988439a39f485cc526ec1b2eb6ec78e7b69345478151ce94bca8522737c6569203c8ab8b8ff08542b496f954bdfb
   languageName: node
   linkType: hard
 
