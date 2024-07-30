@@ -17,7 +17,7 @@ export default function DetailBlog() {
       <main className="bg-muted/40 w-full pb-2">
         <Transition>
           <div
-            className="flex h-36 w-full flex-col items-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500
+            className="flex h-72 w-full flex-col items-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500
  px-2 py-6"
           >
             <div className="w-full px-4 md:px-6 lg:w-10/12">
@@ -54,7 +54,7 @@ export default function DetailBlog() {
                   </section> */}
                   <section />
                   <article className="prose mt-10 max-w-none">
-                    <p>
+                    <p className='rounded bg-white p-2'>
                       <strong>Lorem Ipsum</strong> is simply dummy text of the
                       printing and typesetting industry. Lorem Ipsum has been
                       the industry&apos;s standard dummy text ever since the
@@ -76,8 +76,8 @@ export default function DetailBlog() {
 
 function AuthorInfo() {
   return (
-    <aside className=" bg-white">
-      <Card className="mb-4 items-center space-x-4 rounded border p-4">
+    <aside className="mt-36">
+      <Card className="mb-10 items-center space-x-4 rounded border p-4">
         <div className="flex">
           <img
             src="https://placehold.co/100x100"

@@ -1,4 +1,4 @@
-import { blogs } from '@/asset/data/fakeData'
+import { blogs, listings } from '@/asset/data/fakeData'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Banner from '@/components/banner'
@@ -7,6 +7,7 @@ import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
 
 import BlogItem from './blogs/components/blogItem'
+import ListingItem from './listings/components/listingItem'
 
 export default function Home() {
   return (
@@ -19,7 +20,8 @@ export default function Home() {
               <h1 className={'text-xl font-semibold'}>Latest</h1>
               <Card x-chunk="dashboard-04-chunk-2">
                 <CardHeader>
-                  <CardTitle>Open House</CardTitle>
+                  <CardTitle>Properties</CardTitle>
+                  <ListingItem listing={listings[0]} />
                 </CardHeader>
               </Card>
 
