@@ -21,7 +21,7 @@ export default function Home() {
               <Card x-chunk="dashboard-04-chunk-2">
                 <CardHeader>
                   <CardTitle>Properties</CardTitle>
-                  <ListingItem listing={listings[0]} />
+                  <ListingItem listing={listings[0]} index={0} />
                 </CardHeader>
               </Card>
 
