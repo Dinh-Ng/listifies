@@ -56,7 +56,7 @@ const Header = ({ href = '/' }: { href: string }) => {
           >
             Blogs
           </Link>
-          <Link
+          {/* <Link
             href={'/listings'}
             className={
               (isCurrentHref('/listings')
@@ -66,7 +66,23 @@ const Header = ({ href = '/' }: { href: string }) => {
             }
           >
             Listings
-          </Link>
+          </Link> */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost">
+                <span className="text-muted-foreground">Listings</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>
+                <Link href={'/listings'}>Properties for Sale</Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Link href={'/listings'}>Properties for Lease</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
         <Sheet>
           <SheetTrigger asChild>
@@ -93,22 +109,38 @@ const Header = ({ href = '/' }: { href: string }) => {
               </Link>
               <Link
                 href="/"
-                className="text-muted-foreground hover:text-foreground text-base"
+                className="text-muted-foreground hover:text-foreground h-5 text-base"
               >
                 Home
               </Link>
               <Link
                 href={'/blogs'}
-                className="text-muted-foreground hover:text-foreground text-base"
+                className="text-muted-foreground hover:text-foreground h-5 text-base"
               >
                 Blogs
               </Link>
-              <Link
+              {/* <Link
                 href={'/listings'}
                 className="hover:text-foreground text-base"
               >
                 Listings
-              </Link>
+              </Link> */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className='h-5 justify-start p-0 text-left'>
+                    <span className="text-muted-foreground hover:text-foreground text-base">Listings</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  <DropdownMenuItem>
+                    <Link href={'/listings'}>Properties for Sale</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <Link href={'/listings'}>Properties for Lease</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </nav>
           </SheetContent>
         </Sheet>
