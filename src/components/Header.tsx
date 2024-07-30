@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { CircleUser, Menu, Search } from 'lucide-react'
+import { CircleUser, Menu, Search, SlidersHorizontal } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -155,6 +155,21 @@ const Header = ({ href = '/' }: { href: string }) => {
               />
             </div>
           </form>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="secondary" size="icon" className="rounded-full">
+                <SlidersHorizontal className="size-5" />
+                <span className="sr-only">Toggle user menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>Languages</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Locations</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Listing</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
