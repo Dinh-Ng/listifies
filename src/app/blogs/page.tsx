@@ -17,10 +17,10 @@ export default function Blogs() {
           <div className="mx-auto grid w-full items-start gap-6 md:grid-cols-[1fr_280px] lg:w-10/12 lg:grid-cols-[1fr_350px]">
             <div className="grid gap-6">
               <Card x-chunk="dashboard-04-chunk-2">
-                <CardHeader>
+                <CardHeader className="p-4">
                   <CardTitle>Blogs</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-4">
                   {blogs.map((blog, index) => (
                     <BlogItem blog={blog} key={index} index={index} />
                   ))}

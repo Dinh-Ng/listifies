@@ -20,7 +20,7 @@ export default function DetailBlog() {
             className="flex h-72 w-full flex-col items-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500
  px-2 py-6"
           >
-            <div className="w-full px-4 md:px-6 lg:w-10/12">
+            <div className="w-full px-2 lg:w-10/12 lg:px-4">
               <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
                 <div className="">
                   <h1 className="mb-2 text-3xl font-bold">
