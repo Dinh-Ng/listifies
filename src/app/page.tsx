@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import { blogs, listings } from '@/asset/data/fakeData'
 
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Banner from '@/components/banner'
 import Header from '@/components/Header'
@@ -19,20 +21,31 @@ export default function Home() {
             <div className="grid gap-6">
               <h1 className={'text-xl font-semibold'}>Latest</h1>
               <Card x-chunk="dashboard-04-chunk-2">
-                <CardHeader>
+                <CardHeader className="p-4 lg:p-6">
                   <CardTitle>Properties</CardTitle>
-                  <ListingItem listing={listings[0]} index={0} />
+                  {[listings[0]].map((listing, index) => (
+                    <ListingItem listing={listing} index={index} />
+                  ))}
                 </CardHeader>
+
+                <CardContent className="flex justify-end">
+                  <Button asChild variant="outline">
+                    <Link href={'/blogs'}>View More</Link>
+                  </Button>
+                </CardContent>
               </Card>
 
               <Card x-chunk="dashboard-04-chunk-2">
-                <CardHeader>
+                <CardHeader className="p-4 lg:p-6">
                   <CardTitle>Blogs</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {blogs.map((blog, index) => (
+                  {[blogs[0]].map((blog, index) => (
                     <BlogItem blog={blog} key={index} index={index} />
                   ))}
+                </CardHeader>
+                <CardContent className="flex justify-end">
+                  <Button asChild variant="outline">
+                    <Link href={'/listings'}>View More</Link>
+                  </Button>
                 </CardContent>
               </Card>
             </div>
