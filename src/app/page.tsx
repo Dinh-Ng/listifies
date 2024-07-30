@@ -30,7 +30,7 @@ export default function Home() {
 
                 <CardContent className="flex justify-end">
                   <Button asChild variant="outline">
-                    <Link href={'/blogs'}>View More</Link>
+                    <Link href={'/listings'}>View More Properties</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -44,7 +44,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="flex justify-end">
                   <Button asChild variant="outline">
-                    <Link href={'/listings'}>View More</Link>
+                    <Link href={'/blogs'}>View More Blog Posts</Link>
                   </Button>
                 </CardContent>
               </Card>
