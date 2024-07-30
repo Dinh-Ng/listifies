@@ -4,17 +4,17 @@ import Link from 'next/link'
 type Props = {
   index: number
   listing: {
-    title: string,
-    author: string,
-    date: string,
-    category: string,
-    language: string,
-    imageUrl: string,
-    width: number,
-    height: number,
-    available?: boolean,
-    price: string,
-    tags: string,
+    title: string
+    author: string
+    date: string
+    category: string
+    language: string
+    imageUrl: string
+    width: number
+    height: number
+    available?: boolean
+    price: string
+    tags: string
   }
 }
 
@@ -32,14 +32,21 @@ export default function ListingItem({ listing, index }: Props) {
         height={listing.height}
         className="mb-4 md:mb-0 md:mr-4"
       />
-      <div>
-        <h2 className="text-lg font-bold">{listing.title}</h2>
-        <p>
-          {listing.price} | {listing.tags}
-        </p>
-        <p className="font-bold text-[#bd7f22]">
-          {listing.available ? 'Available' : ''}
-        </p>
+      <div className="flex w-full justify-between">
+        <div>
+          <h2 className="text-lg font-bold">{listing.title}</h2>
+          <p>
+            {listing.price} | {listing.tags}
+          </p>
+          <p className="font-bold text-[#bd7f22]">
+            {listing.available ? 'Available' : ''}
+          </p>
+        </div>
+        <div>
+          <p className="rounded-xl bg-[#f7efe3] px-4 py-2 font-bold italic text-[#bd7f21]">
+            For Sale
+          </p>
+        </div>
       </div>
     </Link>
   )
