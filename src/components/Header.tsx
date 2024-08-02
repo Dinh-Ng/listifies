@@ -1,14 +1,24 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { CircleUser, Menu, Search, SlidersHorizontal } from 'lucide-react'
+import {
+  ChevronDown,
+  CircleUser,
+  Menu,
+  Search,
+  SlidersHorizontal,
+} from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
@@ -127,8 +137,13 @@ const Header = ({ href = '/' }: { href: string }) => {
               </Link> */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className='h-5 justify-start p-0 text-left'>
-                    <span className="text-muted-foreground hover:text-foreground text-base">Listings</span>
+                  <Button
+                    variant="ghost"
+                    className="h-5 justify-start p-0 text-left"
+                  >
+                    <span className="text-muted-foreground hover:text-foreground text-base">
+                      Listings
+                    </span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start">
@@ -155,7 +170,7 @@ const Header = ({ href = '/' }: { href: string }) => {
               />
             </div>
           </form>
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
                 <SlidersHorizontal className="size-5" />
@@ -169,7 +184,8 @@ const Header = ({ href = '/' }: { href: string }) => {
               <DropdownMenuSeparator />
               <DropdownMenuItem>Listing</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
+          <FilterMenu />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
@@ -191,6 +207,101 @@ const Header = ({ href = '/' }: { href: string }) => {
 
       <div className="h-px w-full bg-[#e3e3e3]" />
     </>
+  )
+}
+
+const FilterMenu = () => {
+  const languageList = ['English', 'Vietnamese', 'Spanish']
+  const [language, setLanguage] = useState(languageList[0])
+
+  const locationList = ['Vietnam', 'USA', 'Spain']
+  const [location, setLocation] = useState(locationList[0])
+
+  const listingsList = ['Propertyies for Lease', 'Propertyies for Sell', 'All']
+  const [listings, setListings] = useState(listingsList[0])
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="secondary" size="icon" className="rounded-full">
+          <SlidersHorizontal className="size-5" />
+          <span className="sr-only">Toggle user menu</span>
+        </Button>
+      </DialogTrigger>
+
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Filter</DialogTitle>
+        </DialogHeader>
+        <p>Content Languages</p>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button variant={'outline'} className="w-full justify-between">
+              {language}
+              <ChevronDown />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-[300px]">
+            <DropdownMenuRadioGroup
+              value={language}
+              onValueChange={setLanguage}
+            >
+              {languageList.map((item) => (
+                <DropdownMenuRadioItem key={item} value={item}>
+                  {item}
+                </DropdownMenuRadioItem>
+              ))}
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <p>Location</p>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button variant={'outline'} className="w-full justify-between">
+              {location}
+              <ChevronDown />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-[300px]">
+            <DropdownMenuRadioGroup
+              value={location}
+              onValueChange={setLocation}
+            >
+              {locationList.map((item) => (
+                <DropdownMenuRadioItem key={item} value={item}>
+                  {item}
+                </DropdownMenuRadioItem>
+              ))}
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <p>Listings</p>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button variant={'outline'} className="w-full justify-between">
+              {listings}
+              <ChevronDown />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-[300px]">
+            <DropdownMenuRadioGroup
+              value={listings}
+              onValueChange={setListings}
+            >
+              {listingsList.map((item) => (
+                <DropdownMenuRadioItem key={item} value={item}>
+                  {item}
+                </DropdownMenuRadioItem>
+              ))}
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <Button variant={'secondary'}>Save</Button>
+      </DialogContent>
+    </Dialog>
   )
 }
 
