@@ -16,10 +16,7 @@ export default function DetailBlog() {
       {/* Main Content */}
       <main className="bg-muted/40 w-full pb-2">
         <Transition>
-          <div
-            className="flex h-72 w-full flex-col items-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500
- px-2 py-6"
-          >
+          <div className="flex h-72 w-full flex-col items-center bg-gradient-to-r from-slate-100 to-slate-700 px-2 py-6">
             <div className="w-full px-2 lg:w-10/12 lg:px-4">
               <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
                 <div className="">
@@ -54,7 +51,7 @@ export default function DetailBlog() {
                   </section> */}
                   <section />
                   <article className="prose mt-10 max-w-none">
-                    <p className='rounded bg-white p-2'>
+                    <p className="rounded bg-white p-2">
                       <strong>Lorem Ipsum</strong> is simply dummy text of the
                       printing and typesetting industry. Lorem Ipsum has been
                       the industry&apos;s standard dummy text ever since the
