@@ -4,14 +4,14 @@ import Link from 'next/link'
 type Props = {
   index: number
   blog: {
-    title: string,
-    author: string,
-    date: string,
-    category: string,
-    language: string,
-    imageUrl: string,
-    width: number,
-    height: number,
+    title: string
+    author: string
+    date: string
+    category: string
+    language: string
+    imageUrl: string
+    width: number
+    height: number
   }
 }
 
@@ -34,10 +34,20 @@ export default function BlogItem({ blog, index }: Props) {
         <p>
           {blog.author} | Published {blog.date}
         </p>
-        <p>
-          {blog.category} | {blog.language}
-        </p>
+        <div className="mt-2 flex gap-1">
+          {['Tag1', 'Tag2', 'English'].map((item) => (
+            <TagItem text={item} />
+          ))}
+        </div>
       </div>
+    </Link>
+  )
+}
+
+const TagItem = ({ text }: { text: string }) => {
+  return (
+    <Link href={'#'}>
+      <p className='bg-[#fef5da] p-1 px-2'>{text}</p>
     </Link>
   )
 }

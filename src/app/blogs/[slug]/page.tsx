@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 // import houseImg from '@/asset/img/house.webp'
-import { Mail, Phone } from 'lucide-react'
-
+import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Banner from '@/components/banner'
 import Header from '@/components/Header'
@@ -16,7 +15,13 @@ export default function DetailBlog() {
       {/* Main Content */}
       <main className="bg-muted/40 w-full pb-2">
         <Transition>
-          <div className="flex h-72 w-full flex-col items-center bg-gradient-to-r from-slate-100 to-slate-700 px-2 py-6">
+          <div
+            className="flex h-72 w-full flex-col items-center bg-cover bg-center px-2 py-6"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914')",
+            }}
+          >
             <div className="w-full px-2 lg:w-10/12 lg:px-4">
               <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
                 <div className="">
@@ -111,20 +116,21 @@ function AuthorInfo() {
             alt="Author Image"
             className="size-16 rounded-full"
           />
-          <div className="ml-2 text-sm">
+          <div className="ml-2 flex flex-col justify-center text-sm">
             <h2 className="text-xl font-bold">Author Name</h2>
             <p>Job Title</p>
-            <p>License#: 1234567</p>
           </div>
         </div>
 
-        <div className="flex">
-          <Mail />
-          <p className="ml-2">author@gmail.com</p>
+        <div className="mt-2">
+          <p>License#: 1234567</p>
+          <p>Mail: author@gmail.com</p>
+          <p>Phone: (123) 456-7890</p>
         </div>
-        <div className="flex">
-          <Phone />
-          <p className="ml-2">(123) 456-7890</p>
+
+        <div className="mt-2 flex gap-2">
+          <Button variant={'outline'}>Message</Button>
+          <Button variant={'outline'}>Call</Button>
         </div>
       </Card>
       <Banner />
