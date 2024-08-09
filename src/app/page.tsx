@@ -18,6 +18,7 @@ import Transition from '@/components/Transition'
 
 import BlogItem from './blogs/components/blogItem'
 import ListingItem from './listings/components/listingItem'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -114,6 +115,8 @@ export default function Home() {
             </div>
             <Banner />
           </div>
+
+          <Footer />
         </Transition>
       </main>
     </Layout>
