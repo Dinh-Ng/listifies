@@ -35,7 +35,7 @@ export default function ListingItem({ listing, index }: Props) {
         alt="Post Image"
         width={listing.width}
         height={listing.height}
-        className="mb-4 md:mb-0 md:mr-4"
+        className="mb-4 w-full md:mb-0 md:mr-4 lg:w-[150px]"
       />
       <div className="flex w-full justify-between">
         <div>
@@ -47,9 +47,16 @@ export default function ListingItem({ listing, index }: Props) {
             {/* {listing.available ? 'Available' : ''} */}
             Open House
           </p>
-          <p className="text-[#bd7f22]">
-            Thursday, June 7th, 2024 | 11am - 1pm
-          </p>
+          <div className="text-[#bd7f22]">
+            <p className="hidden lg:block">
+              Thursday, June 7th, 2024 | 11am - 1pm
+            </p>
+            <p className="block lg:hidden">
+              Thursday, June 7th, 2024
+              <br />
+              11am - 1pm
+            </p>
+          </div>
         </div>
       </div>
     </Link>

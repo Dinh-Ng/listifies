@@ -27,27 +27,22 @@ export default function BlogItem({ blog, index }: Props) {
         alt="Post Image"
         width={blog.width}
         height={blog.height}
-        className="mb-4 md:mb-0 md:mr-4"
+        className="mb-4 w-full md:mb-0 md:mr-4 lg:w-[150px]"
       />
       <div>
         <h2 className="text-lg font-bold">{blog.title}</h2>
-        <p>
-          {blog.author} | Published {blog.date}
+        <p className="inline lg:hidden">
+          {blog.author} <br /> Published {blog.date}
+        </p>
+        <p className="hidden lg:block">
+          {blog.author} | {blog.date}
         </p>
         <div className="mt-2 flex gap-1">
           {['Tag1', 'Tag2', 'English'].map((item) => (
-            <TagItem text={item} />
+            <p className="bg-[#fef5da] p-1 px-2">{item}</p>
           ))}
         </div>
       </div>
-    </Link>
-  )
-}
-
-const TagItem = ({ text }: { text: string }) => {
-  return (
-    <Link href={'#'}>
-      <p className='bg-[#fef5da] p-1 px-2'>{text}</p>
     </Link>
   )
 }
