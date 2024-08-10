@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { Mail, Phone } from 'lucide-react'
 import { FaPhoneAlt, FaUser } from 'react-icons/fa'
 
 import {
@@ -20,6 +19,7 @@ import Banner from '@/components/banner'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
+import { Button } from '@/components/ui/button'
 
 export default function DetailListing() {
   return (
@@ -143,28 +143,29 @@ export default function DetailListing() {
 
 function AuthorInfo() {
   return (
-    <aside className=" bg-white">
-      <Card className="mb-4 items-center space-x-4 rounded border p-4">
+    <aside className="">
+      <Card className="mb-10 items-center space-x-4 rounded border p-4">
         <div className="flex">
           <img
             src="https://placehold.co/100x100"
             alt="Author Image"
             className="size-16 rounded-full"
           />
-          <div className="ml-2 text-sm">
+          <div className="ml-2 flex flex-col justify-center text-sm">
             <h2 className="text-xl font-bold">Author Name</h2>
             <p>Job Title</p>
-            <p>License#: 1234567</p>
           </div>
         </div>
 
-        <div className="flex">
-          <Mail />
-          <p className="ml-2">author@gmail.com</p>
+        <div className="mt-2">
+          <p>License#: 1234567</p>
+          <p>Mail: author@gmail.com</p>
+          <p>Phone: (123) 456-7890</p>
         </div>
-        <div className="flex">
-          <Phone />
-          <p className="ml-2">(123) 456-7890</p>
+
+        <div className="mt-2 flex gap-2">
+          <Button variant={'outline'}>Message</Button>
+          <Button variant={'outline'}>Call</Button>
         </div>
       </Card>
       <Banner />

@@ -23,8 +23,13 @@ export default function ListingItem({ listing, index }: Props) {
     <Link
       key={index}
       href={`/listings/${index}`}
-      className="bg-muted/40 mb-4 flex flex-col items-start rounded-md p-4 md:flex-row"
+      className="bg-muted/40 relative mb-4 flex flex-col items-start rounded-md p-4 md:flex-row"
     >
+      <div className="absolute">
+        <p className="rounded-xl bg-[#f7efe3] px-4 py-2 font-bold italic text-[#bd7f21]">
+          For Sale
+        </p>
+      </div>
       <img
         src={listing.imageUrl}
         alt="Post Image"
@@ -39,12 +44,11 @@ export default function ListingItem({ listing, index }: Props) {
             {listing.price} | {listing.tags}
           </p>
           <p className="font-bold text-[#bd7f22]">
-            {listing.available ? 'Available' : ''}
+            {/* {listing.available ? 'Available' : ''} */}
+            Open House
           </p>
-        </div>
-        <div>
-          <p className="rounded-xl bg-[#f7efe3] px-4 py-2 font-bold italic text-[#bd7f21]">
-            For Sale
+          <p className="text-[#bd7f22]">
+            Thursday, June 7th, 2024 | 11am - 1pm
           </p>
         </div>
       </div>

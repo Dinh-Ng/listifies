@@ -23,15 +23,17 @@ export default function DetailBlog() {
             }}
           >
             <div className="w-full px-2 lg:w-10/12 lg:px-4">
+              <div className="mb-6">
+                <h1 className="mb-2 line-clamp-1 text-3xl font-bold">
+                  Blog Detail Page - Post Title
+                </h1>
+                <div className="text-base font-bold text-[#505050]">
+                  <p className="font-bold ">Author | Published mm-dd-yyyy</p>
+                  <p className="">#tagName</p>
+                </div>
+              </div>
               <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
                 <div className="">
-                  <h1 className="mb-2 line-clamp-1 text-3xl font-bold">
-                    Blog Detail Page - Post Title
-                  </h1>
-                  <div className="text-base font-bold text-[#505050]">
-                    <p className="font-bold ">Author | Published mm-dd-yyyy</p>
-                    <p className="">#tagName</p>
-                  </div>
                   {/* <section className="mb-6 rounded">
                     <div className="relative">
                       <div className="absolute left-0 top-0 flex w-full items-center space-x-4 bg-gradient-to-b from-black p-2">
@@ -55,7 +57,7 @@ export default function DetailBlog() {
                     </div>
                   </section> */}
                   <section />
-                  <article className="prose mt-10 max-w-none rounded bg-white p-2">
+                  <article className="prose max-w-none rounded bg-white p-2">
                     <p>
                       <strong>Lorem Ipsum</strong> is simply dummy text of the
                       printing and typesetting industry. Lorem Ipsum has been
@@ -108,7 +110,7 @@ export default function DetailBlog() {
 
 function AuthorInfo() {
   return (
-    <aside className="mt-36">
+    <aside className="">
       <Card className="mb-10 items-center space-x-4 rounded border p-4">
         <div className="flex">
           <img
