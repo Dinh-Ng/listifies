@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="">
       <Card className="border-none bg-black text-white">
-        <CardContent className="mx-auto grid w-full grid-cols-1 py-4 lg:w-10/12 lg:grid-cols-5">
+        <CardContent className="mx-auto grid w-full grid-cols-1 py-4 lg:grid-cols-5">
           <p className="mb-4 text-4xl font-bold">Listifies</p>
           <div className="mb-7 flex flex-col lg:mb-0">
             <p className="text-xl font-bold">Company</p>
