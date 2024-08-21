@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import Banner from '@/components/banner'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
@@ -26,19 +27,16 @@ export default function Listings() {
   return (
     <Layout>
       <Header href={'/listings'} />
-      <main className="bg-muted/40 flex min-h-[calc(100vh_-_theme(spacing.16))] w-full flex-1 flex-col gap-4 p-4 md:gap-8 md:px-6">
+      <main className="bg-muted/40 flex min-h-[calc(100vh_-_theme(spacing.16))] w-full flex-1 flex-col gap-4 md:gap-8">
         <Transition>
-          <div className="mx-auto grid w-full items-start gap-6 md:grid-cols-[1fr_280px] lg:w-10/12 lg:grid-cols-[1fr_350px]">
+          <div className="mx-auto grid w-full grow items-start gap-6 md:grid-cols-[1fr_280px] lg:w-10/12 lg:grid-cols-[1fr_350px]">
             <div className="grid gap-6">
               <Card x-chunk="dashboard-04-chunk-2">
-                <CardHeader className="flex flex-row justify-between p-4">
+                <CardHeader className="flex flex-row items-center justify-between p-4">
                   <CardTitle>Home for Sale</CardTitle>
                   <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <Button
-                        variant={'outline'}
-                        className="w-full justify-between"
-                      >
+                    <DropdownMenuTrigger asChild>
+                      <Button variant={'outline'} className="justify-between">
                         {location}
                         <ChevronDown />
                       </Button>
@@ -66,6 +64,8 @@ export default function Listings() {
             </div>
             <Banner />
           </div>
+
+          <Footer />
         </Transition>
       </main>
     </Layout>

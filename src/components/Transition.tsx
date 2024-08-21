@@ -13,7 +13,7 @@ export default function Transition({
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: 'easeInOut', duration: 0.75 }}
     >
-      {children}
+      <div className="flex min-h-[calc(100vh_-_70px)] flex-col">{children}</div>
     </motion.div>
   )
 }
