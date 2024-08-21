@@ -19,7 +19,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 
-const Header = () => {
+const Header = ({href}: {href: string}) => {
   return (
     <header className="bg-background sticky top-0 grid w-full grid-cols-3 p-2">
       <Sheet>

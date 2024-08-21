@@ -114,21 +114,21 @@ const NewsItem = ({
 }: {
   title: string
   content: string
-  amountOfWords?: string
+  amountOfWords?: number
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const splittedText = content.split(' ')
   const itCanOverflow = splittedText.length > amountOfWords
   const beginText = itCanOverflow
     ? splittedText.slice(0, amountOfWords - 1).join(' ')
-    : text
+    : content
   const endText = splittedText.slice(amountOfWords - 1).join(' ')
 
-  const handleKeyboard = (e) => {
-    if (e.code === 'Space' || e.code === 'Enter') {
-      setIsExpanded(!isExpanded)
-    }
-  }
+  // const handleKeyboard = (e) => {
+  //   if (e.code === 'Space' || e.code === 'Enter') {
+  //     setIsExpanded(!isExpanded)
+  //   }
+  // }
 
   return (
     <div className="">
@@ -156,7 +156,7 @@ const NewsItem = ({
               tabIndex={0}
               aria-expanded={isExpanded}
               aria-controls={'read-more-text'}
-              onKeyDown={handleKeyboard}
+              // onKeyDown={handleKeyboard}
               onClick={() => setIsExpanded(!isExpanded)}
             >
               {isExpanded ? 'show less' : 'show more'}
