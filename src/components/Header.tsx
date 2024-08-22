@@ -19,7 +19,11 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 
-const Header = ({href}: {href: string}) => {
+const Header = ({ href }: { href: string }) => {
+  const isCurrentHref = (hrefCheck: string) => {
+    return href === hrefCheck
+  }
+
   return (
     <header className="bg-background sticky top-0 grid w-full grid-cols-3 p-2">
       <Sheet>
@@ -47,13 +51,19 @@ const Header = ({href}: {href: string}) => {
             </form>
             <Link
               href="/"
-              className="h-5 text-base text-white hover:text-white/50"
+              className={
+                (isCurrentHref('/') ? 'font-bold' : '') +
+                ' h-5 text-base text-white hover:text-white/50'
+              }
             >
               Home
             </Link>
             <Link
               href={'/blogs'}
-              className="h-5 text-base text-white hover:text-white/50"
+              className={
+                (isCurrentHref('/blogs') ? 'font-bold' : '') +
+                ' h-5 text-base text-white hover:text-white/50'
+              }
             >
               Blogs
             </Link>
@@ -85,7 +95,9 @@ const Header = ({href}: {href: string}) => {
         <p className="text-3xl font-bold">Listifies</p>
       </div>
       <div className="flex justify-end">
-        <Button>Add Listing</Button>
+        <Button variant="outline" className="border-black">
+          Add Listing
+        </Button>
       </div>
     </header>
   )
