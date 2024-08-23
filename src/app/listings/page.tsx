@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState } from 'react'
@@ -29,6 +30,11 @@ export default function Listings() {
       <Header href={'/listings'} />
       <main className="bg-muted/40 flex min-h-[calc(100vh_-_theme(spacing.16))] w-full flex-1 flex-col gap-4 md:gap-8">
         <Transition>
+          <img
+            alt="hero_img"
+            className="mb-6 h-44 w-full object-cover object-center"
+            src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+          />
           <div className="mx-auto grid w-full grow items-start gap-6 md:grid-cols-[1fr_280px] lg:w-10/12 lg:grid-cols-[1fr_350px]">
             <div className="grid gap-6">
               <Card x-chunk="dashboard-04-chunk-2">

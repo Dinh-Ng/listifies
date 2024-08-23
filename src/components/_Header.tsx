@@ -210,7 +210,7 @@ const Header = ({ href = '/' }: { href: string }) => {
   )
 }
 
-const FilterMenu = () => {
+export const FilterMenu = () => {
   const languageList = ['English', 'Vietnamese', 'Spanish']
   const [language, setLanguage] = useState(languageList[0])
 
