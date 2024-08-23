@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 import { news } from '@/asset/data/fakeData'
-import { ChevronDown, Search, Share2 } from 'lucide-react'
+import { ChevronDown, MapPin, Search, Share2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,15 +34,12 @@ export default function Home() {
 
           {/* Content */}
           <div className="mx-auto grid w-full grow items-start gap-6 p-4 md:grid-cols-[1fr_280px] lg:w-10/12 lg:grid-cols-[1fr_350px]">
-            <div className="grid gap-6">
-              <div className='flex items-center justify-between'>
-                <h1 className={'text-xl font-semibold'}>Update</h1>
+            <div className="grid gap-4">
+              <div className="flex items-center justify-between">
+                <h1 className={'text-xl font-semibold'}>Updates</h1>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button
-                      variant={'outline'}
-                      className="justify-between"
-                    >
+                    <Button variant={'outline'} className="justify-between">
                       {language}
                       <ChevronDown />
                     </Button>
@@ -97,7 +94,15 @@ export default function Home() {
                 </CardContent>
               </Card> */}
             </div>
-            <Banner />
+            <div>
+              <Card className='mb-6'>
+                <CardHeader>
+                  <CardTitle>Today’s Rate</CardTitle>
+                </CardHeader>
+                <CardContent className='h-40'/>
+              </Card>
+              <Banner />
+            </div>
           </div>
 
           <Footer />
@@ -177,16 +182,16 @@ const HeroSection = () => {
           "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914')",
       }}
     >
-      <p className="mb-4 text-2xl font-bold text-white">Find your listings</p>
-      <div className="grid gap-px bg-[rgba(0,0,0,0.4)] md:grid-cols-[200px] lg:grid-cols-[200px_200px_200px] lg:rounded-full">
+      {/* <p className="mb-4 text-2xl font-bold text-white">Find your listings</p> */}
+      <div className="grid items-center gap-px bg-white md:grid-cols-[200px] lg:grid-cols-[200px_200px_200px] lg:rounded-sm">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="w-[200px] rounded-b-none rounded-t-xl bg-white lg:rounded-l-full lg:rounded-r-none"
+              className="w-[200px] rounded-b-none rounded-t-xl bg-white lg:rounded-l-sm lg:rounded-r-none"
             >
-              <span className="w-full">Home for Sale</span>
               <ChevronDown className="size-5" />
+              <span className="w-full">Home for Sale</span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="center">
@@ -198,8 +203,8 @@ const HeroSection = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="w-[200px] rounded-none bg-white">
+              <MapPin className="size-5" />
               <span className="w-full">All Locations</span>
-              <ChevronDown className="size-5" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="center">
@@ -208,13 +213,16 @@ const HeroSection = () => {
             <DropdownMenuItem>Vietnam</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <Button
+        {/* <Button
           className="relative w-[200px] rounded-b-xl rounded-t-none text-[#cecdcd] lg:rounded-l-none lg:rounded-r-full"
           variant="ghost"
         >
           Search
           <Search className="absolute right-4 size-4" />
-        </Button>
+        </Button> */}
+        <div className='flex flex-row justify-end p-2'>
+          <Button>Search</Button>
+        </div>
       </div>
     </div>
   )
