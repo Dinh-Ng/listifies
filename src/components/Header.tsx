@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import logo from '@/asset/img/listifies_logo.svg'
 import { Menu, Search } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -92,7 +94,8 @@ const Header = ({ href }: { href: string }) => {
         </SheetContent>
       </Sheet>
       <div className="flex justify-center">
-        <p className="text-3xl font-bold">Listifies</p>
+        {/* <p className="text-3xl font-bold">Listifies</p> */}
+        <Image src={logo} alt="logo" className='h-12 w-full scale-[2]' />
       </div>
       <div className="flex justify-end">
         <Button variant="outline" className="border-black">
