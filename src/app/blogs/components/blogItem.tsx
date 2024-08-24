@@ -20,7 +20,7 @@ export default function BlogItem({ blog, index }: Props) {
     <Link
       key={index}
       href={`/blogs/${index}`}
-      className="bg-muted/80 mb-4 flex flex-col items-start rounded-md p-4 md:flex-row"
+      className="bg-muted/80 mb-4 flex flex-col items-start rounded-md md:flex-row"
     >
       <img
         src={blog.imageUrl}
@@ -29,7 +29,7 @@ export default function BlogItem({ blog, index }: Props) {
         height={blog.height}
         className="mb-4 w-full md:mb-0 md:mr-4 lg:w-[150px]"
       />
-      <div>
+      <div className="p-2 lg:px-0">
         <h2 className="text-lg font-bold">{blog.title}</h2>
         <p className="inline lg:hidden">
           {blog.author} <br /> Published {blog.date}

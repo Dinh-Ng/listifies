@@ -22,7 +22,7 @@ import Transition from '@/components/Transition'
 import ListingItem from '@/app/listings/components/listingItem'
 
 export default function Listings() {
-  const locationList = ['Vietnam', 'USA', 'Spain']
+  const locationList = ['All Locations', 'Vietnam', 'USA', 'Spain']
   const [location, setLocation] = useState(locationList[0])
 
   return (
