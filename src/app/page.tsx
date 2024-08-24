@@ -19,6 +19,7 @@ import Banner from '@/components/banner'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
+import NavigationSection from '@/components/NavigationSection'
 import Transition from '@/components/Transition'
 
 export default function Home() {
@@ -33,7 +34,8 @@ export default function Home() {
           <HeroSection />
 
           {/* Content */}
-          <div className="mx-auto grid w-full grow items-start gap-6 p-4 md:grid-cols-[1fr_280px] lg:w-10/12 lg:grid-cols-[1fr_350px]">
+          <div className="mx-auto grid w-full grow items-start gap-6 p-4 md:grid-cols-1 lg:w-10/12 lg:grid-cols-[2fr_7fr_3fr]">
+            <NavigationSection currentHref="/" />
             <div className="grid gap-4">
               <div className="flex items-center justify-between">
                 <h1 className={'text-xl font-semibold'}>Updates</h1>
@@ -95,11 +97,11 @@ export default function Home() {
               </Card> */}
             </div>
             <div>
-              <Card className='mb-6'>
+              <Card className="mb-6">
                 <CardHeader>
                   <CardTitle>Today’s Rate</CardTitle>
                 </CardHeader>
-                <CardContent className='h-40'/>
+                <CardContent className="h-40" />
               </Card>
               <Banner />
             </div>
@@ -220,7 +222,7 @@ const HeroSection = () => {
           Search
           <Search className="absolute right-4 size-4" />
         </Button> */}
-        <div className='flex flex-row justify-end p-2'>
+        <div className="flex flex-row justify-end p-2">
           <Button>Search</Button>
         </div>
       </div>
