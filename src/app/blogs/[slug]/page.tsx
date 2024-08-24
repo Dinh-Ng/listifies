@@ -106,7 +106,7 @@ export default function DetailBlog() {
                       This author’s Blog Posts
                     </p>
                     {blogs.map((item, index) => (
-                      <BlogItem blog={item} key={index} />
+                      <BlogItem blog={item} index={index} />
                     ))}
                   </div>
                 </div>

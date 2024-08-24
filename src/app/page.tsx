@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { news } from '@/asset/data/fakeData'
-import { ChevronDown, MapPin, Search, Share2 } from 'lucide-react'
+import { ChevronDown, MapPin, Share2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
