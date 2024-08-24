@@ -95,7 +95,12 @@ const Header = ({ href }: { href: string }) => {
       </Sheet>
       <div className="flex justify-center">
         {/* <p className="text-3xl font-bold">Listifies</p> */}
-        <Image src={logo} alt="logo" className='h-12 w-full scale-[2]' />
+        <Image
+          src={logo}
+          alt="logo"
+          className="h-12 w-full scale-[2]"
+          priority
+        />
       </div>
       <div className="flex justify-end">
         <Button variant="outline" className="border-black">
