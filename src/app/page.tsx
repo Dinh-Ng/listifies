@@ -185,45 +185,43 @@ const HeroSection = () => {
       }}
     >
       {/* <p className="mb-4 text-2xl font-bold text-white">Find your listings</p> */}
-      <div className="grid items-center gap-px bg-white md:grid-cols-[200px] lg:grid-cols-[200px_200px_200px] lg:rounded-sm">
+      <div className="grid items-center rounded md:grid-cols-[1fr_200px] lg:grid-cols-[200px_300px] lg:rounded-sm">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="w-[200px] rounded-b-none rounded-t-xl bg-white lg:rounded-l-sm lg:rounded-r-none"
+              className="h-[56px] w-full justify-start rounded bg-white lg:rounded-l-sm lg:rounded-r-none"
             >
               <ChevronDown className="size-5" />
-              <span className="w-full">Home for Sale</span>
+              <span className="">Home for Sale</span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="center">
+          <DropdownMenuContent align="start">
             <DropdownMenuItem>Home for Sale</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Home for Lease</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="w-[200px] rounded-none bg-white">
-              <MapPin className="size-5" />
-              <span className="w-full">All Locations</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="center">
-            <DropdownMenuItem>USA</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Vietnam</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-        {/* <Button
-          className="relative w-[200px] rounded-b-xl rounded-t-none text-[#cecdcd] lg:rounded-l-none lg:rounded-r-full"
-          variant="ghost"
-        >
-          Search
-          <Search className="absolute right-4 size-4" />
-        </Button> */}
-        <div className="flex flex-row justify-end p-2">
-          <Button>Search</Button>
+        <div className="mt-4 flex flex-row items-center justify-between rounded bg-white lg:mt-0 lg:rounded-none">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="w-[200px] justify-start rounded-none"
+              >
+                <MapPin className="size-5" />
+                <span className="">All Locations</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center">
+              <DropdownMenuItem>USA</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Vietnam</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <div className="flex flex-row justify-end p-2">
+            <Button className="bg-gray-500">Search</Button>
+          </div>
         </div>
       </div>
     </div>
