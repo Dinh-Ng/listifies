@@ -35,7 +35,7 @@ const Header = ({ href }: { href: string }) => {
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="border-none bg-[#3d3c3c]">
+        <SheetContent side="left" className="border-none bg-[#7a7a7a]">
           <SheetHeader>
             <SheetTitle />
             <SheetDescription />
