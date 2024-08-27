@@ -19,7 +19,7 @@ import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import NavigationSection from '@/components/NavigationSection'
 import Transition from '@/components/Transition'
-import { NewsItem } from '@/app/page'
+import NewsItem from '@/app/update/components/NewsItem'
 
 const Update = () => {
   const languageList = ['Vietnamese', 'English', 'Spanish']
@@ -69,7 +69,7 @@ const Update = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Card x-chunk="dashboard-04-chunk-2" className='bg-[#e2e8f0]'>
+              <Card x-chunk="dashboard-04-chunk-2" className="bg-[#e2e8f0]">
                 <CardHeader className="p-4 lg:p-6">
                   <p>Today 08/08/2024</p>
                 </CardHeader>
