@@ -81,20 +81,6 @@ export default function Home() {
                   </Button> */}
                 </CardContent>
               </Card>
-
-              {/* <Card x-chunk="dashboard-04-chunk-2">
-                <CardHeader className="p-4 lg:p-6">
-                  <CardTitle>Blogs</CardTitle>
-                  {[blogs[0]].map((blog, index) => (
-                    <BlogItem blog={blog} key={index} index={index} />
-                  ))}
-                </CardHeader>
-                <CardContent className="flex justify-end">
-                  <Button asChild variant="outline">
-                    <Link href={'/blogs'}>View More Blog Posts</Link>
-                  </Button>
-                </CardContent>
-              </Card> */}
             </div>
             <div>
               <Card className="mb-6">
@@ -114,7 +100,7 @@ export default function Home() {
   )
 }
 
-const NewsItem = ({
+export const NewsItem = ({
   title,
   content,
   amountOfWords = 30,
