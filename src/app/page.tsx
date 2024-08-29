@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import Script from 'next/script'
 import { news } from '@/asset/data/fakeData'
-import { ChevronDown, MapPin, Share2 } from 'lucide-react'
+import { ChevronDown, MapPin } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -29,6 +30,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <Script src="https://www.loanfactory.com/sdk.js?owner=phungpham@outlook.com" />
       <Header href={'/'} />
       <main className="bg-muted/40 flex min-h-[calc(100vh_-_theme(spacing.16))] w-full flex-1 flex-col gap-4 md:gap-8">
         <Transition>
@@ -88,7 +90,15 @@ export default function Home() {
                 <CardHeader>
                   <CardTitle>Today’s Rate</CardTitle>
                 </CardHeader>
-                <CardContent className="h-40" />
+                <CardContent className="h-40">
+                  <div
+                    data-ui-widget="today_rate"
+                    data-purpose="PM"
+                    data-sub-header-text="320000"
+                    data-lead-info-required="1"
+                    data-lead-info-disclaimer="These rates are intended for realtors and loan officers only. For information purposes only and does not constitute a loan approval or commitment to lend. Rates are subject to change without notice."
+                  ></div>
+                </CardContent>
               </Card>
               <Banner />
             </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Script from 'next/script'
 import { news } from '@/asset/data/fakeData'
 import { ChevronDown } from 'lucide-react'
 
@@ -27,6 +28,7 @@ const Update = () => {
 
   return (
     <Layout>
+      <Script src="https://www.loanfactory.com/sdk.js?owner=phungpham@outlook.com" />
       <Header href="/update" />
       <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] w-full flex-1 flex-col gap-4 bg-[#f1f5f9] md:gap-8">
         <Transition>
@@ -90,7 +92,15 @@ const Update = () => {
                 <CardHeader>
                   <CardTitle>Today’s Rate</CardTitle>
                 </CardHeader>
-                <CardContent className="h-40" />
+                <CardContent className="h-40">
+                  <div
+                    data-ui-widget="today_rate"
+                    data-purpose="PM"
+                    data-sub-header-text="320000"
+                    data-lead-info-required="1"
+                    data-lead-info-disclaimer="These rates are intended for realtors and loan officers only. For information purposes only and does not constitute a loan approval or commitment to lend. Rates are subject to change without notice."
+                  ></div>
+                </CardContent>
               </Card>
               <Banner />
             </div>
