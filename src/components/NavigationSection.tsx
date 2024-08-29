@@ -20,7 +20,7 @@ const NavigationSection = ({ currentHref }: { currentHref: string }) => {
   }
 
   return (
-    <div className="grid gap-3">
+    <div className="hidden gap-3 lg:grid">
       {data.map((item, index) => (
         <LinkItem href={item.href} title={item.title} key={index} />
       ))}
