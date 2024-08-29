@@ -1,29 +1,29 @@
 import Link from 'next/link'
+import { LinkMapping, linkType } from '@/asset/constant'
+import React from 'react'
 
-const NavigationSection = ({ currentHref }: { currentHref: string }) => {
-  const isCurrent = (href: string): React.ComponentProps<'div'>['className'] =>
+const NavigationSection = ({ currentHref }: { currentHref: linkType }) => {
+  const isCurrent = (href: linkType): React.ComponentProps<'div'>['className'] =>
     currentHref === href ? 'font-bold' : ''
 
-  const data = [
-    { href: '/', title: 'Home' },
-    { href: '/blogs', title: 'Blogs' },
-    { href: '/listings', title: 'Listings' },
-    { href: '/update', title: 'Update' },
-  ]
-
-  const LinkItem = ({ href, title }: { href: string; title: string }) => {
+  const LinkItem = ({ href }: { href: linkType }) => {
     return (
       <Link href={href} className={isCurrent(href)}>
-        {title}
+        {LinkMapping.get(href)}
       </Link>
     )
   }
 
   return (
     <div className="hidden gap-3 lg:grid">
-      {data.map((item, index) => (
-        <LinkItem href={item.href} title={item.title} key={index} />
-      ))}
+      <LinkItem href="/" />
+      <LinkItem href="/blogs" />
+      <p>Listings</p>
+      <div className="grid gap-3 pl-2">
+        <LinkItem href="/home-for-sale" />
+        <LinkItem href="/home-for-lease" />
+      </div>
+      <LinkItem href='/update' />
     </div>
   )
 }

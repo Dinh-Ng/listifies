@@ -23,13 +23,13 @@ export default function Blogs() {
             src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
           />
           <div className="mx-auto grid w-full grow items-start gap-6 md:grid-cols-1 lg:w-10/12 lg:grid-cols-[2fr_7fr_3fr]">
-            <NavigationSection currentHref='/blogs' />
-            <div className="grid gap-6">
+            <NavigationSection currentHref="/blogs" />
+            <div className="grid gap-2">
+              <CardHeader className="flex flex-row items-center justify-between p-0">
+                <CardTitle>Blogs</CardTitle>
+                <FilterMenu />
+              </CardHeader>
               <Card x-chunk="dashboard-04-chunk-2">
-                <CardHeader className="flex flex-row items-center justify-between p-4">
-                  <CardTitle>Blogs</CardTitle>
-                  <FilterMenu />
-                </CardHeader>
                 <CardContent className="p-4">
                   {blogs.map((blog, index) => (
                     <BlogItem blog={blog} key={index} index={index} />

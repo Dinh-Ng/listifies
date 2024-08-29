@@ -33,7 +33,7 @@ import Transition from '@/components/Transition'
 export default function DetailListing() {
   return (
     <Layout>
-      <Header href={'/listings'} />
+      <Header href={'/[slug]'} />
       {/*<div className="mx-auto">*/}
       {/* Main Content */}
       <main className="bg-muted/40 w-full py-2">

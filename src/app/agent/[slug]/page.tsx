@@ -6,7 +6,7 @@ import Transition from '@/components/Transition'
 export default function Agent() {
   return (
     <Layout>
-      <Header href="/agent" />
+      <Header href="/[slug]" />
       <main className="bg-muted/40 flex min-h-[calc(100vh_-_theme(spacing.16))] w-full flex-1 flex-col gap-4 md:gap-8">
         <Transition>
           <div

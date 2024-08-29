@@ -1,16 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { LinkMapping, linkType } from '@/asset/constant'
 import logo from '@/asset/img/listifies_logo.svg'
 import { Menu, Search } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import {
   Sheet,
@@ -21,10 +15,22 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 
-const Header = ({ href }: { href: string }) => {
+const Header = ({ href }: { href: linkType }) => {
   const isCurrentHref = (hrefCheck: string) => {
     return href === hrefCheck
   }
+
+  const LinkItem = ({ href }: { href: linkType }) => (
+    <Link
+      href={href}
+      className={
+        (isCurrentHref(href) ? 'font-bold' : '') +
+        ' h-5 text-base text-white hover:text-white/50'
+      }
+    >
+      {LinkMapping.get(href)}
+    </Link>
+  )
 
   return (
     <header className="bg-background sticky top-0 grid w-full grid-cols-3 p-2">
@@ -51,45 +57,14 @@ const Header = ({ href }: { href: string }) => {
                 />
               </div>
             </form>
-            <Link
-              href="/"
-              className={
-                (isCurrentHref('/') ? 'font-bold' : '') +
-                ' h-5 text-base text-white hover:text-white/50'
-              }
-            >
-              Home
-            </Link>
-            <Link
-              href={'/blogs'}
-              className={
-                (isCurrentHref('/blogs') ? 'font-bold' : '') +
-                ' h-5 text-base text-white hover:text-white/50'
-              }
-            >
-              Blogs
-            </Link>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="h-5 justify-start p-0 text-left"
-                >
-                  <span className="cursor-pointer text-base text-white hover:text-white/50">
-                    Listings
-                  </span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem>
-                  <Link href={'/listings'}>Properties for Sale</Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <Link href={'/listings'}>Properties for Lease</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <LinkItem href="/" />
+            <LinkItem href="/blogs" />
+            <p className="h-5 text-base text-white">Listings</p>
+            <div className="ml-6 grid gap-6">
+              <LinkItem href="/home-for-sale" />
+              <LinkItem href="/home-for-lease" />
+            </div>
+            <LinkItem href="/update" />
           </nav>
         </SheetContent>
       </Sheet>
