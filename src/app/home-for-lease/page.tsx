@@ -1,4 +1,4 @@
-import Listings from '@/app/listings/page'
+import Listings from '@/app/listings/_page'
 
 const HomeLease = () => {
   return <Listings href='/home-for-lease' />

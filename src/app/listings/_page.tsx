@@ -1,18 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { LinkMapping } from '@/asset/constant'
+import { useState } from 'react'
+import { LinkMapping, linkType } from '@/asset/constant'
 import { listings } from '@/asset/data/fakeData'
 import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
 
-import ListingItem from '@/app/listings/components/listingItem'
-import Banner from '@/components/banner'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import Layout from '@/components/layout'
-import NavigationSection from '@/components/NavigationSection'
-import Transition from '@/components/Transition'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
@@ -22,9 +15,15 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import Banner from '@/components/banner'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import Layout from '@/components/layout'
+import NavigationSection from '@/components/NavigationSection'
+import Transition from '@/components/Transition'
+import ListingItem from '@/app/listings/components/listingItem'
 
-const Listings = () => {
-  const href = '/'
+const Listings = ({ href }: { href: linkType }) => {
   const locationList = ['All Locations', 'Vietnam', 'USA', 'Spain']
   const [location, setLocation] = useState(locationList[0])
 
