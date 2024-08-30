@@ -65,7 +65,10 @@ const Listings = ({ href }: { href: linkType }) => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </CardHeader>
-              <Card x-chunk="dashboard-04-chunk-2">
+              <Card
+                x-chunk="dashboard-04-chunk-2"
+                className="border-none shadow-lg"
+              >
                 <CardContent className="p-4">
                   {listings.map((listing, index) => (
                     <ListingItem listing={listing} key={index} index={index} />

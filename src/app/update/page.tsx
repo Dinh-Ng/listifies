@@ -88,7 +88,7 @@ const Update = () => {
               </Card>
             </div>
             <div>
-              <Card className="mb-6">
+              <Card className="mb-6 border-none shadow-lg">
                 <CardHeader>
                   <CardTitle>Today’s Rate</CardTitle>
                 </CardHeader>

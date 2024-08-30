@@ -42,7 +42,7 @@ export default function DetailBlog() {
               </Button>
               <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
                 <div>
-                  <div className="rounded border bg-white">
+                  <div className="rounded border-none bg-white shadow-lg">
                     <div className="mb-6 p-4">
                       <h1 className="mb-2 line-clamp-1 text-3xl font-bold">
                         Blog Detail Page - Post Title
@@ -124,7 +124,7 @@ export default function DetailBlog() {
 function AuthorInfo() {
   return (
     <aside className="">
-      <Card className="mb-10 items-center space-x-4 rounded border p-4">
+      <Card className="mb-10 items-center space-x-4 rounded border-none p-4 shadow-lg">
         <div className="flex">
           <img
             src="https://placehold.co/100x100"
@@ -143,11 +143,9 @@ function AuthorInfo() {
           <p>Phone: (123) 456-7890</p>
         </div>
 
-        <div className="relative h-4">
-          <div className="absolute mt-2 flex w-full gap-2">
-            <Button variant={'outline'}>Message</Button>
-            <Button variant={'outline'}>Call</Button>
-          </div>
+        <div className="mt-2 flex w-full gap-2">
+          <Button variant={'outline'}>Message</Button>
+          <Button variant={'outline'}>Call</Button>
         </div>
       </Card>
       <Banner />

@@ -128,7 +128,7 @@ export default function DetailListing() {
 function AuthorInfo() {
   return (
     <aside className="">
-      <Card className="mb-10 items-center space-x-4 rounded border p-4">
+      <Card className="mb-10 items-center space-x-4 rounded border-none p-4 shadow-lg">
         <div className="flex">
           <img
             src="https://placehold.co/100x100"
@@ -136,8 +136,7 @@ function AuthorInfo() {
             className="size-16 rounded-full"
           />
           <div className="ml-2 flex flex-col justify-center text-sm">
-            <Link href={'/agent/0'}>
-            <h2 className="text-xl font-bold">Author Name</h2></Link>
+            <h2 className="text-xl font-bold">Author Name</h2>
             <p>Job Title</p>
           </div>
         </div>
@@ -148,11 +147,9 @@ function AuthorInfo() {
           <p>Phone: (123) 456-7890</p>
         </div>
 
-        <div className="relative h-4">
-          <div className="absolute mt-2 flex w-full gap-2">
-            <Button variant={'outline'}>Message</Button>
-            <Button variant={'outline'}>Call</Button>
-          </div>
+        <div className="mt-2 flex w-full gap-2">
+          <Button variant={'outline'}>Message</Button>
+          <Button variant={'outline'}>Call</Button>
         </div>
       </Card>
       <Banner />

@@ -63,7 +63,10 @@ export default function Home() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Card x-chunk="dashboard-04-chunk-2">
+              <Card
+                x-chunk="dashboard-04-chunk-2"
+                className="border-none shadow-lg"
+              >
                 <CardHeader className="p-4 lg:p-6">
                   <p>Today 08/08/2024</p>
                   {/* {[listings[0]].map((listing, index) => (
@@ -86,7 +89,7 @@ export default function Home() {
               </Card>
             </div>
             <div>
-              <Card className="mb-6">
+              <Card className="mb-6 border-none shadow-lg">
                 <CardHeader>
                   <CardTitle>Today’s Rate</CardTitle>
                 </CardHeader>
@@ -121,7 +124,7 @@ const HeroSection = () => {
       }}
     >
       {/* <p className="mb-4 text-2xl font-bold text-white">Find your listings</p> */}
-      <div className="grid items-center rounded md:grid-cols-[1fr_200px] lg:grid-cols-[200px_300px] lg:rounded-sm">
+      <div className="grid items-center rounded lg:grid-cols-[200px_300px] lg:rounded-sm">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button

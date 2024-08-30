@@ -29,7 +29,10 @@ export default function Blogs() {
                 <CardTitle>Blogs</CardTitle>
                 <FilterMenu />
               </CardHeader>
-              <Card x-chunk="dashboard-04-chunk-2">
+              <Card
+                x-chunk="dashboard-04-chunk-2"
+                className="border-none shadow-lg"
+              >
                 <CardContent className="p-4">
                   {blogs.map((blog, index) => (
                     <BlogItem blog={blog} key={index} index={index} />
