@@ -71,7 +71,7 @@ const Listings = ({ href }: { href: linkType }) => {
               >
                 <CardContent className="p-4">
                   {listings.map((listing, index) => (
-                    <ListingItem listing={listing} key={index} index={index} />
+                    <ListingItem listing={listing} key={index} index={index} href={href} />
                   ))}
                 </CardContent>
               </Card>

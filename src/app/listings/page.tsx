@@ -69,7 +69,7 @@ const Listings = () => {
               <Card x-chunk="dashboard-04-chunk-2">
                 <CardContent className="p-4">
                   {listings.map((listing, index) => (
-                    <ListingItem listing={listing} key={index} index={index} />
+                    <ListingItem listing={listing} key={index} index={index} href={href} />
                   ))}
                 </CardContent>
               </Card>

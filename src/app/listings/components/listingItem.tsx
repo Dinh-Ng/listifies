@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
+import { linkType } from '@/asset/constant'
 
 type Props = {
   index: number
@@ -16,13 +17,14 @@ type Props = {
     price: string
     tags: string
   }
+  href: linkType
 }
 
-export default function ListingItem({ listing, index }: Props) {
+export default function ListingItem({ listing, index, href }: Props) {
   return (
     <Link
       key={index}
-      href={`/listings/${index}`}
+      href={`${href}/${index}`}
       className="bg-muted/40 relative mb-4 flex flex-col items-start rounded-md p-4 md:flex-row"
     >
       <div className="absolute">
