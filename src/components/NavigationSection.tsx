@@ -24,6 +24,7 @@ const NavigationSection = ({ currentHref }: { currentHref: linkType }) => {
         <LinkItem href="/home-for-lease" />
       </div>
       <LinkItem href='/update' />
+      <LinkItem href='/loan-solution' />
     </div>
   )
 }

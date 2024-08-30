@@ -65,6 +65,7 @@ const Header = ({ href }: { href: linkType }) => {
               <LinkItem href="/home-for-lease" />
             </div>
             <LinkItem href="/update" />
+            <LinkItem href="/loan-solution" />
           </nav>
         </SheetContent>
       </Sheet>
