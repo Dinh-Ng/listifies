@@ -115,6 +115,8 @@ export default function Home() {
 }
 
 const HeroSection = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [isOpenLocation, setIsOpenLocation] = useState(false)
   return (
     <div
       className="flex w-full flex-col items-center justify-center bg-cover bg-center py-16"
@@ -125,11 +127,16 @@ const HeroSection = () => {
     >
       {/* <p className="mb-4 text-2xl font-bold text-white">Find your listings</p> */}
       <div className="grid items-center rounded lg:grid-cols-[200px_300px] lg:rounded-sm">
-        <DropdownMenu>
+        <DropdownMenu open={isOpen}>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="h-[56px] w-full justify-start rounded bg-white lg:rounded-l-sm lg:rounded-r-none"
+              className={
+                'h-[56px] w-full justify-start rounded bg-white lg:rounded-l-sm lg:rounded-r-none ' +
+                'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 '
+              }
+              onMouseEnter={() => setIsOpen(true)}
+              onMouseLeave={() => setIsOpen(false)}
             >
               <ChevronDown className="size-5" />
               <span className="">Home for Sale</span>
@@ -142,11 +149,16 @@ const HeroSection = () => {
           </DropdownMenuContent>
         </DropdownMenu>
         <div className="mt-4 flex flex-row items-center justify-between rounded bg-white lg:mt-0 lg:rounded-none">
-          <DropdownMenu>
+          <DropdownMenu open={isOpenLocation}>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="w-[200px] justify-start rounded-none"
+                className={
+                  'w-[200px] justify-start rounded-none ' +
+                  'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 '
+                }
+                onMouseEnter={() => setIsOpenLocation(true)}
+                onMouseLeave={() => setIsOpenLocation(false)}
               >
                 <MapPin className="size-5" />
                 <span className="">All Locations</span>

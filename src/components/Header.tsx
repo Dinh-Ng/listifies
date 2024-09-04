@@ -41,7 +41,11 @@ const Header = ({ href }: { href: linkType }) => {
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="border-none bg-zinc-800">
+        <SheetContent
+          side="left"
+          className="border-none bg-zinc-800"
+          onOpenAutoFocus={(e) => e.preventDefault()}
+        >
           <SheetHeader>
             <SheetTitle />
             <SheetDescription />
