@@ -16,8 +16,8 @@ const NavigationSection = ({ currentHref }: { currentHref: linkType }) => {
 
   return (
     <div className="hidden gap-3 lg:grid">
-      <LinkItem href="/" />
-      <LinkItem href="/blogs" />
+      {/* <LinkItem href="/" /> */}
+      {/* <LinkItem href="/blogs" /> */}
       <p>Listings</p>
       <div className="grid gap-3 pl-2">
         <LinkItem href="/home-for-sale" />

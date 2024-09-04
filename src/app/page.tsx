@@ -159,7 +159,7 @@ const HeroSection = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           <div className="flex flex-row justify-end p-2">
-            <Button className="bg-[#7a7a7a]">Search</Button>
+            <Button className="bg-zinc-800">Search</Button>
           </div>
         </div>
       </div>

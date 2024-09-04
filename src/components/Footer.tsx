@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card'
 const Footer = () => {
   return (
     <div className="mt-4">
-      <Card className="rounded-none border-none bg-[#7a7a7a] text-white">
+      <Card className="rounded-none border-none bg-zinc-800 text-white">
         <CardContent className="mx-auto grid w-full grid-cols-1 py-4 lg:grid-cols-5">
           <p className="mb-4 text-4xl font-bold">Listifies</p>
           <div className="mb-7 flex flex-col lg:mb-0">
