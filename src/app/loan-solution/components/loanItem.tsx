@@ -5,7 +5,7 @@ const LoanItem = () => {
   return (
     <Link
       href={'/loan-solution/0'}
-      className="bg-muted/40 mb-1 flex flex-col items-start rounded-md p-4 md:flex-row"
+      className="bg-muted/40 mb-1 flex flex-col items-start rounded-md md:flex-row"
     >
       <img
         src={'https://images.unsplash.com/photo-1570129477492-45c003edd2be'}

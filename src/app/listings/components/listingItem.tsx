@@ -25,10 +25,10 @@ export default function ListingItem({ listing, index, href }: Props) {
     <Link
       key={index}
       href={`${href}/${index}`}
-      className="bg-muted/40 relative mb-4 flex flex-col items-start rounded-md p-4 md:flex-row"
+      className="bg-muted/40 relative mb-4 flex flex-col items-start rounded-md md:flex-row"
     >
       <div className="absolute">
-        <p className="rounded-xl bg-[#f7efe3] px-4 py-2 font-bold italic text-[#bd7f21]">
+        <p className="rounded-xl bg-[#f7efe3] px-3 py-1.5 font-bold italic text-[#bd7f21]">
           For Sale
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function ListingItem({ listing, index, href }: Props) {
         height={listing.height}
         className="mb-4 w-full md:mb-0 md:mr-4 lg:w-[150px]"
       />
-      <div className="flex w-full justify-between">
+      <div className="flex w-full justify-between p-2 lg:px-0">
         <div>
           <h2 className="text-lg font-bold">{listing.title}</h2>
           <p>

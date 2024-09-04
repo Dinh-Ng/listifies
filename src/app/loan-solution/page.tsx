@@ -70,9 +70,9 @@ const LoanSolution = () => {
               </div>
               <Card
                 x-chunk="dashboard-04-chunk-2"
-                className="rounded-none shadow-lg"
+                className="shadow-lg border-none"
               >
-                <CardContent className="grid gap-2">
+                <CardContent className="grid gap-2 pt-4">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <LoanItem key={index} />
                   ))}
