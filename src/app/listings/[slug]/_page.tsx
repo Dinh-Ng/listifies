@@ -142,7 +142,9 @@ function AuthorInfo() {
             className="size-16 rounded-full"
           />
           <div className="ml-2 flex flex-col justify-center text-sm">
-            <h2 className="text-xl font-bold">Author Name</h2>
+            <Link href={'/agent/0'}>
+              <h2 className="text-xl font-bold">Author Name</h2>
+            </Link>
             <p>Job Title</p>
           </div>
         </div>
