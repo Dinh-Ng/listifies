@@ -29,7 +29,7 @@ export default function ListingItem({ listing, index, href }: Props) {
     >
       <div className="absolute">
         <p className="rounded-xl bg-[#f7efe3] px-3 py-1.5 font-bold italic text-[#bd7f21]">
-          For Sale
+          {href === '/home-for-sale' ? 'For Sale' : 'For Lease'}
         </p>
       </div>
       <img

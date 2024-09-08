@@ -1,5 +1,7 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+'use client'
+
+import { useState } from 'react'
 import { listings } from '@/asset/data/fakeData'
 
 import { Button } from '@/components/ui/button'
@@ -11,6 +13,8 @@ import Transition from '@/components/Transition'
 import ListingItem from '@/app/listings/components/listingItem'
 
 export default function Agent() {
+  const [isForSale, setIsForSale] = useState(true)
+
   return (
     <Layout>
       <Header href="/[slug]" />
@@ -29,6 +33,7 @@ export default function Agent() {
                   <img
                     src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
                     className="size-36 rounded-full"
+                    alt="Avatar"
                   />
                   <div className="ml-4 mt-2 text-white">
                     <p className="font-bold">Realtor Name</p>
@@ -40,11 +45,19 @@ export default function Agent() {
                 <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
                   <div>
                     <div className="my-4 flex items-center">
-                      <Button variant="ghost" className="font-bold">
+                      <Button
+                        variant="ghost"
+                        className={(isForSale ? 'font-bold' : '') + ' text-lg'}
+                        onClick={() => setIsForSale(true)}
+                      >
                         Home For Sale
                       </Button>
                       <p> | </p>
-                      <Button variant="ghost" className="">
+                      <Button
+                        variant="ghost"
+                        className={(!isForSale ? 'font-bold' : '') + ' text-lg'}
+                        onClick={() => setIsForSale(false)}
+                      >
                         Home For Lease
                       </Button>
                     </div>
@@ -52,7 +65,7 @@ export default function Agent() {
                       <ListingItem
                         index={index}
                         listing={item}
-                        href="/home-for-sale"
+                        href={isForSale ? '/home-for-sale' : '/home-for-lease'}
                       />
                     ))}
                   </div>
