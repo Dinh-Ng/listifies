@@ -28,6 +28,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import Banner from '@/components/banner'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
@@ -124,6 +125,8 @@ export default function DetailListing({ href }: { href: linkType }) {
               </div>
             </div>
           </div>
+
+          <Footer />
         </Transition>
       </main>
       {/*</div>*/}

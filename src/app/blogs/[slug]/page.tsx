@@ -7,6 +7,7 @@ import { ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Banner from '@/components/banner'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
@@ -114,6 +115,8 @@ export default function DetailBlog() {
               </div>
             </div>
           </div>
+
+          <Footer />
         </Transition>
       </main>
       {/*</div>*/}

@@ -7,6 +7,7 @@ import { listings } from '@/asset/data/fakeData'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Banner from '@/components/banner'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
@@ -41,40 +42,43 @@ export default function Agent() {
                     <p>Licens# 12345 • Contact Info</p>
                   </div>
                 </div>
-
-                <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
-                  <div>
-                    <div className="my-4 flex items-center">
-                      <Button
-                        variant="ghost"
-                        className={(isForSale ? 'font-bold' : '') + ' text-lg'}
-                        onClick={() => setIsForSale(true)}
-                      >
-                        Home For Sale
-                      </Button>
-                      <p> | </p>
-                      <Button
-                        variant="ghost"
-                        className={(!isForSale ? 'font-bold' : '') + ' text-lg'}
-                        onClick={() => setIsForSale(false)}
-                      >
-                        Home For Lease
-                      </Button>
-                    </div>
-                    {listings.map((item, index) => (
-                      <ListingItem
-                        index={index}
-                        listing={item}
-                        href={isForSale ? '/home-for-sale' : '/home-for-lease'}
-                      />
-                    ))}
-                  </div>
-
-                  <AuthorInfo />
-                </div>
               </div>
             </div>
           </div>
+
+          <div className="mt-10 w-full self-center lg:w-10/12">
+            <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
+              <div>
+                <div className="my-4 flex items-center">
+                  <Button
+                    variant="ghost"
+                    className={(isForSale ? 'font-bold' : '') + ' text-lg'}
+                    onClick={() => setIsForSale(true)}
+                  >
+                    Home For Sale
+                  </Button>
+                  <p> | </p>
+                  <Button
+                    variant="ghost"
+                    className={(!isForSale ? 'font-bold' : '') + ' text-lg'}
+                    onClick={() => setIsForSale(false)}
+                  >
+                    Home For Lease
+                  </Button>
+                </div>
+                {listings.map((item, index) => (
+                  <ListingItem
+                    index={index}
+                    listing={item}
+                    href={isForSale ? '/home-for-sale' : '/home-for-lease'}
+                  />
+                ))}
+              </div>
+
+              <AuthorInfo />
+            </div>
+          </div>
+          <Footer />
         </Transition>
       </main>
     </Layout>
