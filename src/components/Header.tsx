@@ -72,6 +72,9 @@ const Header = ({ href }: { href: linkType }) => {
             </div>
             <LinkItem href="/update" />
             <LinkItem href="/loan-solution" />
+            <Button variant="outline" className="lg:hidden">
+              Add Listing
+            </Button>
           </nav>
         </SheetContent>
       </Sheet>
@@ -84,7 +87,7 @@ const Header = ({ href }: { href: linkType }) => {
           priority
         />
       </div>
-      <div className="flex justify-end">
+      <div className="hidden justify-end lg:flex">
         <Button variant="outline" className="border-black">
           Add Listing
         </Button>
