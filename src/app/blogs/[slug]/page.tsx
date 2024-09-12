@@ -13,6 +13,7 @@ import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
 
 import BlogItem from '../components/blogItem'
+import NavigationSection from '@/components/NavigationSection'
 
 export default function DetailBlog() {
   return (
@@ -35,13 +36,14 @@ export default function DetailBlog() {
             // }}
           >
             <div className="w-full px-2 lg:w-10/12 lg:px-4">
-              <Button variant="ghost" className="px-0">
+              <Button variant="ghost" className="px-0 lg:ml-[14vw]">
                 <Link href="/blogs" className="row flex items-center">
                   <ChevronLeft />
                   <p className="text-lg">Blog</p>
                 </Link>
               </Button>
-              <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
+              <div className="grid items-start gap-4 md:grid-cols-1 lg:grid-cols-[2fr_7fr_3fr]">
+                <NavigationSection currentHref={'/blogs'} />
                 <div>
                   <div className="rounded border-none bg-white shadow-lg">
                     <div className="mb-6 p-4">

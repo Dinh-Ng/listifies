@@ -15,7 +15,7 @@ const NavigationSection = ({ currentHref }: { currentHref: linkType }) => {
   }
 
   return (
-    <div className="hidden gap-3 lg:grid">
+    <div className="sticky top-20 hidden gap-3 lg:grid">
       {/* <LinkItem href="/" /> */}
       {/* <LinkItem href="/blogs" /> */}
       <p>Listings</p>
@@ -23,7 +23,7 @@ const NavigationSection = ({ currentHref }: { currentHref: linkType }) => {
         <LinkItem href="/home-for-sale" />
         <LinkItem href="/home-for-lease" />
       </div>
-      <LinkItem href='/update' />
+      {/* <LinkItem href='/update' /> */}
       <LinkItem href='/loan-solution' />
     </div>
   )

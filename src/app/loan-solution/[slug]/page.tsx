@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
+import NavigationSection from '@/components/NavigationSection'
 
 const LoanSolutionDetail = () => {
   return (
@@ -21,13 +22,14 @@ const LoanSolutionDetail = () => {
           />
           <div className="flex w-full flex-col items-center bg-cover bg-center px-2 py-6">
             <div className="w-full px-2 lg:w-10/12 lg:px-4">
-              <Button variant="ghost" className="px-0">
+              <Button variant="ghost" className="px-0 lg:ml-[14vw]">
                 <Link href="/loan-solution" className="row flex items-center">
                   <ChevronLeft />
                   <p className="text-lg">Loan Solution</p>
                 </Link>
               </Button>
-              <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
+              <div className="grid items-start gap-4 md:grid-cols-1 lg:grid-cols-[2fr_7fr_3fr]">
+                <NavigationSection currentHref='/loan-solution' />
                 <div>
                   <div className="rounded border-none bg-white shadow-lg">
                     <div className="mb-4 p-4">
