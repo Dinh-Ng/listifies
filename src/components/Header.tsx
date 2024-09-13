@@ -62,7 +62,7 @@ const Header = ({ href }: { href: linkType }) => {
   )
 
   return (
-    <header className="bg-background sticky top-0 grid w-full grid-cols-3 p-2">
+    <header className="bg-background sticky top-0 z-10 grid w-full grid-cols-3 p-2 shadow-lg">
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="">

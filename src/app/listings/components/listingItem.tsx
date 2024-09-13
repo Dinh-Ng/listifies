@@ -27,7 +27,7 @@ export default function ListingItem({ listing, index, href }: Props) {
       href={`${href}/${index}`}
       className="bg-muted/40 relative mb-4 flex flex-col items-start rounded-md md:flex-row"
     >
-      <div className="absolute">
+      <div className="absolute z-0">
         <p className="rounded-xl bg-[#f7efe3] px-3 py-1.5 font-bold italic text-[#bd7f21]">
           {href === '/home-for-sale' ? 'For Sale' : 'For Lease'}
         </p>
