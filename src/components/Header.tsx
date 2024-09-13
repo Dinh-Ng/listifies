@@ -7,6 +7,13 @@ import logo from '@/asset/img/listifies_logo.svg'
 import { Menu, Search } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import {
   Sheet,
@@ -32,6 +39,26 @@ const Header = ({ href }: { href: linkType }) => {
     >
       {LinkMapping.get(href)}
     </Link>
+  )
+
+  const AddListingButton = () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" className="border-black">
+          Add Listing
+        </Button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent>
+        <DropdownMenuItem asChild>
+          <Link href="/add-listing/home-for-sale">Home for Sale</Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link href="/add-listing/home-for-lease">Home for Lease</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 
   return (
@@ -72,9 +99,9 @@ const Header = ({ href }: { href: linkType }) => {
             </div>
             <LinkItem href="/update" />
             <LinkItem href="/loan-solution" />
-            <Button variant="outline" className="lg:hidden">
-              Add Listing
-            </Button>
+            <div className="lg:hidden">
+              <AddListingButton />
+            </div>
           </nav>
         </SheetContent>
       </Sheet>
@@ -88,9 +115,7 @@ const Header = ({ href }: { href: linkType }) => {
         />
       </div>
       <div className="hidden justify-end lg:flex">
-        <Button variant="outline" className="border-black">
-          Add Listing
-        </Button>
+        <AddListingButton />
       </div>
     </header>
   )
