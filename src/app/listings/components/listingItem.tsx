@@ -25,7 +25,7 @@ export default function ListingItem({ listing, index, href }: Props) {
     <Link
       key={index}
       href={`${href}/${index}`}
-      className="bg-muted/40 relative mb-4 flex flex-col items-start rounded-md md:flex-row"
+      className="bg-muted/40 relative mb-4 grid items-start rounded-md sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-[4fr_8fr]"
     >
       <div className="absolute z-0">
         <p className="rounded-xl bg-[#f7efe3] px-3 py-1.5 font-bold italic text-[#bd7f21]">
@@ -37,9 +37,9 @@ export default function ListingItem({ listing, index, href }: Props) {
         alt="Post Image"
         width={listing.width}
         height={listing.height}
-        className="mb-4 w-full md:mb-0 md:mr-4 lg:w-[150px]"
+        className="mb-4 w-full md:mb-0 md:mr-4"
       />
-      <div className="flex w-full justify-between p-2 lg:px-0">
+      <div className="flex w-full justify-between p-2">
         <div>
           <h2 className="text-lg font-bold">{listing.title}</h2>
           <p>
