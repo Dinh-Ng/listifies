@@ -47,7 +47,7 @@ export default function DetailBlog() {
                 <div>
                   <div className="rounded border-none bg-white shadow-lg">
                     <div className="mb-6 p-4">
-                      <h1 className="mb-2 line-clamp-1 text-3xl font-bold">
+                      <h1 className="mb-2 line-clamp-1 text-lg font-bold lg:text-xl">
                         Blog Detail Page - Post Title
                       </h1>
                       <div className="text-base font-bold text-[#505050]">

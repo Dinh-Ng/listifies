@@ -66,7 +66,7 @@ export default function DetailListing({ href }: { href: linkType }) {
                     <CardHeader className="p-4 ">
                       {/* <CardTitle>Home Address</CardTitle>
                       <CardDescription /> */}
-                      <div className="flex-row justify-between text-2xl font-semibold lg:flex">
+                      <div className="flex-row justify-between text-lg font-semibold lg:flex lg:text-xl">
                         <p className="mb-4 leading-none tracking-tight lg:mb-0">
                           Property Type • $300,000
                         </p>
