@@ -119,7 +119,7 @@ const HeroSection = () => {
   const [isOpenLocation, setIsOpenLocation] = useState(false)
   return (
     <div
-      className="flex w-full flex-col items-center justify-center bg-cover bg-center py-16"
+      className="flex h-[50vh] w-full flex-col items-center justify-center bg-cover bg-center py-16"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914')",
