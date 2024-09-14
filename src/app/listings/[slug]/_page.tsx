@@ -85,6 +85,8 @@ export default function DetailListing({ href }: { href: linkType }) {
                         <ContactInfoButton />
                         <p className="px-2"> • </p>
                         <OpenHouseButton />
+                        <p className="px-2"> • </p>
+                        <MoreInfoButton />
                       </div>
                     </CardHeader>
                     <CardContent className="p-4">
@@ -210,6 +212,23 @@ const OpenHouseButton = () => (
           11:00am - 1:30pm
         </div>
       </DialogDescription>
+    </DialogContent>
+  </Dialog>
+)
+
+const MoreInfoButton = () => (
+  <Dialog>
+    <DialogTrigger className="text-blue-500">More Details</DialogTrigger>
+    <DialogContent className="flex h-[90vh] w-[90vw] flex-col">
+      <DialogHeader>
+        <DialogTitle>Information</DialogTitle>
+        <DialogDescription />
+      </DialogHeader>
+
+      <iframe
+        className="size-full"
+        src="https://property.listreports.com/YTcSSIYMCr/10711-lacaille-ln-richmond-tx-77406?premium&v1725105492209"
+      />
     </DialogContent>
   </Dialog>
 )
