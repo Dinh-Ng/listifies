@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Script from 'next/script'
 import { news } from '@/asset/data/fakeData'
 import { ChevronDown, MapPin } from 'lucide-react'
@@ -117,6 +117,26 @@ export default function Home() {
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isOpenLocation, setIsOpenLocation] = useState(false)
+
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const timeoutLocationRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setIsOpen(true)
+  }
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setIsOpen(false), 300)
+  }
+
+  const handleEnterLocation = () => {
+    if (timeoutLocationRef.current) clearTimeout(timeoutLocationRef.current)
+    setIsOpenLocation(true)
+  }
+  const handleLeaveLocation = () => {
+    timeoutLocationRef.current = setTimeout(() => setIsOpenLocation(false), 300)
+  }
+
   return (
     <div
       className="flex h-[50vh] w-full flex-col items-center justify-center bg-cover bg-center py-16"
@@ -135,14 +155,18 @@ const HeroSection = () => {
                 'h-[56px] w-full justify-start rounded bg-white lg:rounded-l-sm lg:rounded-r-none ' +
                 'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 '
               }
-              onMouseEnter={() => setIsOpen(true)}
-              onMouseLeave={() => setIsOpen(false)}
+              onMouseEnter={handleEnter}
+              onMouseLeave={handleLeave}
             >
               <ChevronDown className="size-5" />
               <span className="">Home for Sale</span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start">
+          <DropdownMenuContent
+            align="start"
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+          >
             <DropdownMenuItem>Home for Sale</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Home for Lease</DropdownMenuItem>
@@ -157,14 +181,18 @@ const HeroSection = () => {
                   'w-[200px] justify-start rounded-none ' +
                   'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 '
                 }
-                onMouseEnter={() => setIsOpenLocation(true)}
-                onMouseLeave={() => setIsOpenLocation(false)}
+                onMouseEnter={handleEnterLocation}
+                onMouseLeave={handleLeaveLocation}
               >
                 <MapPin className="size-5" />
                 <span className="">All Locations</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center">
+            <DropdownMenuContent
+              align="center"
+              onMouseEnter={handleEnterLocation}
+              onMouseLeave={handleLeaveLocation}
+            >
               <DropdownMenuItem>USA</DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Vietnam</DropdownMenuItem>
