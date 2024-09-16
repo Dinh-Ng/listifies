@@ -71,7 +71,7 @@ const Update = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Card x-chunk="dashboard-04-chunk-2" className="bg-[#e2e8f0]">
+              <Card x-chunk="dashboard-04-chunk-2" className="border-none bg-white shadow-lg">
                 <CardHeader className="p-4 lg:p-6">
                   <p>Today 08/08/2024</p>
                 </CardHeader>
