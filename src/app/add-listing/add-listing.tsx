@@ -1,4 +1,5 @@
 import Banner from '@/components/banner'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import NavigationSection from '@/components/NavigationSection'
@@ -32,18 +33,19 @@ const AddListing = ({ embed_link }: Props) => {
 
             <div>
               <iframe
-                className="airtable-embed"
+                className="airtable-embed min-h-screen border border-gray-300 bg-transparent"
                 src={embed_link}
                 frameBorder="0"
                 // onmousewheel=""
                 width="100%"
                 height="533"
-                style={{ background: 'transparent', border: '1px solid #ccc' }}
               ></iframe>
             </div>
 
             <Banner />
           </div>
+
+          <Footer />
         </Transition>
       </main>
     </Layout>
