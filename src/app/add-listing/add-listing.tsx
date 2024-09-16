@@ -1,3 +1,4 @@
+import { CardTitle } from '@/components/ui/card'
 import Banner from '@/components/banner'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -32,8 +33,9 @@ const AddListing = ({ embed_link }: Props) => {
             <NavigationSection currentHref="/[slug]" />
 
             <div>
+              <CardTitle className="mb-4">New Listing</CardTitle>
               <iframe
-                className="airtable-embed min-h-screen border border-gray-300 bg-transparent"
+                className="airtable-embed min-h-[200vh] border border-gray-300 bg-transparent lg:min-h-screen"
                 src={embed_link}
                 frameBorder="0"
                 // onmousewheel=""
