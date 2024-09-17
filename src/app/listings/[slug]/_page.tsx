@@ -219,7 +219,7 @@ const OpenHouseButton = () => (
 const MoreInfoButton = () => (
   <Dialog>
     <DialogTrigger className="text-blue-500">More Details</DialogTrigger>
-    <DialogContent className="flex h-[90vh] w-[90vw] flex-col">
+    <DialogContent className="flex h-[90vh] w-[90vw] max-w-none flex-col">
       <DialogHeader>
         <DialogTitle>Information</DialogTitle>
         <DialogDescription />
