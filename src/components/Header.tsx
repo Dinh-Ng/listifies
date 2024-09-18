@@ -107,12 +107,14 @@ const Header = ({ href }: { href: linkType }) => {
       </Sheet>
       <div className="flex justify-center">
         {/* <p className="text-3xl font-bold">Listifies</p> */}
-        <Image
-          src={logo}
-          alt="logo"
-          className="h-12 w-full scale-[2]"
-          priority
-        />
+        <Link href={'/'} className="px-10">
+          <Image
+            src={logo}
+            alt="logo"
+            className="h-12 w-full scale-[2]"
+            priority
+          />
+        </Link>
       </div>
       <div className="hidden justify-end lg:flex">
         <AddListingButton />
