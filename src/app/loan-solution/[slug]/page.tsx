@@ -8,6 +8,7 @@ import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Transition from '@/components/Transition'
 import NavigationSection from '@/components/NavigationSection'
+import Footer from '@/components/Footer'
 
 const LoanSolutionDetail = () => {
   return (
@@ -103,6 +104,7 @@ const LoanSolutionDetail = () => {
               </div>
             </div>
           </div>
+          <Footer />
         </Transition>
       </main>
     </Layout>

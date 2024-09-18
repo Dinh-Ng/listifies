@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import Banner from '@/components/banner'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import NavigationSection from '@/components/NavigationSection'
@@ -97,6 +98,7 @@ const LoanSolution = () => {
               <Banner />
             </div>
           </div>
+          <Footer />
         </Transition>
       </main>
     </Layout>
