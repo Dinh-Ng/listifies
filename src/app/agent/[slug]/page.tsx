@@ -48,7 +48,7 @@ export default function Agent() {
 
           <div className="mt-10 w-full self-center lg:w-10/12">
             <div className="grid gap-4 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_350px]">
-              <div>
+              <div className="px-2">
                 <div className="my-4 flex items-center">
                   <Button
                     variant="ghost"
@@ -68,6 +68,7 @@ export default function Agent() {
                 </div>
                 {listings.map((item, index) => (
                   <ListingItem
+                    key={index}
                     index={index}
                     listing={item}
                     href={isForSale ? '/home-for-sale' : '/home-for-lease'}

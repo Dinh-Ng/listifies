@@ -23,7 +23,6 @@ type Props = {
 export default function ListingItem({ listing, index, href }: Props) {
   return (
     <Link
-      key={index}
       href={`${href}/${index}`}
       className="bg-muted/40 relative mb-4 grid items-start rounded-md sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-[4fr_8fr]"
     >
