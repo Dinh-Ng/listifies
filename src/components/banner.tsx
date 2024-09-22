@@ -9,7 +9,9 @@ export default function Banner() {
 
   return (
     <aside>
-      <h1 className="mb-6 pl-2 text-xl font-semibold">Sponsored</h1>
+      <h1 className="mb-2 flex h-14 items-center pl-2 text-xl font-semibold">
+        Sponsored
+      </h1>
       {banners.map((banner, index) => (
         <Card key={index} className="mb-4 border-none shadow-lg">
           <CardHeader>

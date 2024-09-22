@@ -25,7 +25,7 @@ export default function Blogs() {
           <div className="mx-auto grid w-full grow items-start gap-6 md:grid-cols-1 lg:w-10/12 lg:grid-cols-[2fr_7fr_3fr]">
             <NavigationSection currentHref="/blogs" />
             <div className="grid gap-2">
-              <CardHeader className="flex flex-row items-center justify-between px-4 py-0 lg:px-0">
+              <CardHeader className="flex h-14 flex-row items-center justify-between px-4 py-0 lg:px-0">
                 <CardTitle>Blogs</CardTitle>
                 <FilterMenu />
               </CardHeader>
