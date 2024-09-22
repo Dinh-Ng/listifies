@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import Script from 'next/script'
 import { news } from '@/asset/data/fakeData'
-import { ChevronDown, MapPin } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -16,6 +16,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Input } from '@/components/ui/input'
 import Banner from '@/components/banner'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -116,10 +117,10 @@ export default function Home() {
 
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isOpenLocation, setIsOpenLocation] = useState(false)
+  // const [isOpenLocation, setIsOpenLocation] = useState(false)
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const timeoutLocationRef = useRef<NodeJS.Timeout | null>(null)
+  // const timeoutLocationRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -129,31 +130,37 @@ const HeroSection = () => {
     timeoutRef.current = setTimeout(() => setIsOpen(false), 300)
   }
 
-  const handleEnterLocation = () => {
-    if (timeoutLocationRef.current) clearTimeout(timeoutLocationRef.current)
-    setIsOpenLocation(true)
-  }
-  const handleLeaveLocation = () => {
-    timeoutLocationRef.current = setTimeout(() => setIsOpenLocation(false), 300)
-  }
+  // const handleEnterLocation = () => {
+  //   if (timeoutLocationRef.current) clearTimeout(timeoutLocationRef.current)
+  //   setIsOpenLocation(true)
+  // }
+  // const handleLeaveLocation = () => {
+  //   timeoutLocationRef.current = setTimeout(() => setIsOpenLocation(false), 300)
+  // }
 
   return (
     <div
-      className="flex h-[50vh] w-full flex-col items-center justify-center bg-cover bg-center py-16"
+      className="flex h-[50vh] w-full flex-col items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914')",
       }}
     >
-      {/* <p className="mb-4 text-2xl font-bold text-white">Find your listings</p> */}
-      <div className="grid items-center rounded lg:grid-cols-[200px_300px] lg:rounded-sm">
+      <p className="mb-4 text-2xl font-bold text-white">I AM LOOKING AT</p>
+      <div
+        className={
+          'grid items-center rounded lg:grid-cols-[2fr_3fr] lg:rounded-sm gap-1 ' +
+          'lg:w-1/2 justify-center md:w-[70%] w-[90%]'
+        }
+      >
         <DropdownMenu open={isOpen}>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
               className={
-                'h-[56px] w-full justify-start rounded bg-white lg:rounded-l-sm lg:rounded-r-none ' +
-                'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 '
+                'h-[56px] w-full justify-start rounded bg-white lg:rounded-sm ' +
+                'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 ' +
+                'w-[90vw] md:w-[70vw] lg:w-full'
               }
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
@@ -166,14 +173,15 @@ const HeroSection = () => {
             align="start"
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
+            className="w-[90vw] md:w-[70vw] lg:w-[20vw]"
           >
             <DropdownMenuItem>Home for Sale</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Home for Lease</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <div className="mt-4 flex flex-row items-center justify-between rounded bg-white lg:mt-0 lg:rounded-none">
-          <DropdownMenu open={isOpenLocation}>
+        <div className="mt-4 flex flex-row items-center justify-between rounded bg-white pl-2 lg:mt-0 lg:rounded-sm">
+          {/* <DropdownMenu open={isOpenLocation}>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
@@ -197,7 +205,8 @@ const HeroSection = () => {
               <DropdownMenuSeparator />
               <DropdownMenuItem>Vietnam</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
+          <Input placeholder="All Locations" />
           <div className="flex flex-row justify-end p-2">
             <Button className="bg-zinc-800">Search</Button>
           </div>
