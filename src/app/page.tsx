@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
@@ -116,11 +116,10 @@ export default function Home() {
 }
 
 const HeroSection = () => {
+  const [status, setStatus] = useState<'sale' | 'lease'>('sale')
   const [isOpen, setIsOpen] = useState(false)
-  // const [isOpenLocation, setIsOpenLocation] = useState(false)
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-  // const timeoutLocationRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -129,14 +128,6 @@ const HeroSection = () => {
   const handleLeave = () => {
     timeoutRef.current = setTimeout(() => setIsOpen(false), 300)
   }
-
-  // const handleEnterLocation = () => {
-  //   if (timeoutLocationRef.current) clearTimeout(timeoutLocationRef.current)
-  //   setIsOpenLocation(true)
-  // }
-  // const handleLeaveLocation = () => {
-  //   timeoutLocationRef.current = setTimeout(() => setIsOpenLocation(false), 300)
-  // }
 
   return (
     <div
@@ -166,7 +157,9 @@ const HeroSection = () => {
               onMouseLeave={handleLeave}
             >
               <ChevronDown className="size-5" />
-              <span className="">Home for Sale</span>
+              <span className="">
+                {status === 'sale' ? 'Home for Sale' : 'Home for Lease'}
+              </span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -175,41 +168,34 @@ const HeroSection = () => {
             onMouseLeave={handleLeave}
             className="w-[90vw] md:w-[70vw] lg:w-[20vw]"
           >
-            <DropdownMenuItem>Home for Sale</DropdownMenuItem>
+            {/* <DropdownMenuItem>Home for Sale</DropdownMenuItem>
+            <DropdownMenuItem>Home for Lease</DropdownMenuItem> */}
+            <DropdownMenuCheckboxItem
+              checked={status === 'sale'}
+              onCheckedChange={() => {
+                setStatus('sale')
+                handleLeave()
+              }}
+            >
+              Home for Sale
+            </DropdownMenuCheckboxItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Home for Lease</DropdownMenuItem>
+            <DropdownMenuCheckboxItem
+              checked={status === 'lease'}
+              onCheckedChange={() => {
+                setStatus('lease')
+                handleLeave()
+              }}
+            >
+              Home for Lease
+            </DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <div className="mt-4 flex flex-row items-center justify-between rounded bg-white pl-2 lg:mt-0 lg:rounded-sm">
-          {/* <DropdownMenu open={isOpenLocation}>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                className={
-                  'w-[200px] justify-start rounded-none ' +
-                  'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 '
-                }
-                onMouseEnter={handleEnterLocation}
-                onMouseLeave={handleLeaveLocation}
-              >
-                <MapPin className="size-5" />
-                <span className="">All Locations</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="center"
-              onMouseEnter={handleEnterLocation}
-              onMouseLeave={handleLeaveLocation}
-            >
-              <DropdownMenuItem>USA</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Vietnam</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu> */}
-          <Input placeholder="All Locations" />
-          <div className="flex flex-row justify-end p-2">
-            <Button className="bg-zinc-800">Search</Button>
-          </div>
+        <div className="mt-4 flex flex-row items-center justify-between rounded bg-white p-2 lg:mt-0 lg:rounded-sm">
+          <Input className="lg:w-[20vw]" placeholder="All Locations" />
+          {/* <div className="flex flex-row justify-end p-2"> */}
+          <Button className="ml-2 bg-zinc-800 lg:w-[8vw]">Search</Button>
+          {/* </div> */}
         </div>
       </div>
     </div>
