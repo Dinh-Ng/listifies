@@ -140,7 +140,7 @@ const HeroSection = () => {
       <p className="mb-4 text-2xl font-bold text-white">I AM LOOKING AT</p>
       <div
         className={
-          'grid items-center rounded lg:grid-cols-[2fr_3fr] lg:rounded-sm gap-1 ' +
+          'grid items-center rounded lg:grid-cols-2 lg:rounded-sm gap-1 ' +
           'lg:w-1/2 justify-center md:w-[70%] w-[90%]'
         }
       >
@@ -192,7 +192,7 @@ const HeroSection = () => {
           </DropdownMenuContent>
         </DropdownMenu>
         <div className="mt-4 flex flex-row items-center justify-between rounded bg-white p-2 lg:mt-0 lg:rounded-sm">
-          <Input className="lg:w-[20vw]" placeholder="All Locations" />
+          <Input className="" placeholder="All Locations" />
           {/* <div className="flex flex-row justify-end p-2"> */}
           <Button className="ml-2 bg-zinc-800 lg:w-[8vw]">Search</Button>
           {/* </div> */}
