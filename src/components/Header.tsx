@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LinkMapping, linkType } from '@/asset/constant'
 import logo from '@/asset/img/listifies_logo.svg'
-import { Menu, Search } from 'lucide-react'
+import { Menu } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -82,7 +82,7 @@ const Header = ({ href }: { href: linkType }) => {
           <nav className="mt-10 grid gap-6 text-lg font-medium">
             <form className="flex-1 sm:flex-initial">
               <div className="relative">
-                <Search className="text-muted-foreground absolute left-2.5 top-2.5 size-4" />
+                {/* <Search className="text-muted-foreground absolute left-2.5 top-2.5 size-4" /> */}
                 <Input
                   type="search"
                   placeholder="Search ..."
@@ -102,6 +102,10 @@ const Header = ({ href }: { href: linkType }) => {
             <div className="lg:hidden">
               <AddListingButton />
             </div>
+
+            <Button asChild variant="outline">
+              <Link href="/portal/">Portal</Link>
+            </Button>
           </nav>
         </SheetContent>
       </Sheet>
