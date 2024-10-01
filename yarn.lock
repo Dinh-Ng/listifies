@@ -602,6 +602,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-avatar@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@radix-ui/react-avatar@npm:1.1.0"
+  dependencies:
+    "@radix-ui/react-context": 1.1.0
+    "@radix-ui/react-primitive": 2.0.0
+    "@radix-ui/react-use-callback-ref": 1.1.0
+    "@radix-ui/react-use-layout-effect": 1.1.0
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 9f704dee499d34edcc66dca393568518b18d80cb63572291055f5137dc603f4c150bb02ed4799d3c35b8c614cdbb23be533a0f6cfcaefdb626fb4b31edc3fdd1
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-checkbox@npm:^1.1.1":
   version: 1.1.1
   resolution: "@radix-ui/react-checkbox@npm:1.1.1"
@@ -3715,6 +3737,7 @@ __metadata:
   resolution: "listifies@workspace:."
   dependencies:
     "@ianvs/prettier-plugin-sort-imports": ^4.3.0
+    "@radix-ui/react-avatar": ^1.1.0
     "@radix-ui/react-checkbox": ^1.1.1
     "@radix-ui/react-collapsible": ^1.1.0
     "@radix-ui/react-dialog": ^1.1.1
@@ -3747,6 +3770,7 @@ __metadata:
     tailwindcss: ^3.4.1
     tailwindcss-animate: ^1.0.7
     typescript: ^5
+    vaul: ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -5467,6 +5491,18 @@ __metadata:
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 474acf1146cb2701fe3b074892217553dfcf9a031280919ba1b8d651a068c9b15d863b7303cb15bd00a862b498e6cf4ad7b4a08fb134edd5a6f7641681cb54a2
+  languageName: node
+  linkType: hard
+
+"vaul@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "vaul@npm:1.0.0"
+  dependencies:
+    "@radix-ui/react-dialog": ^1.1.1
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 275cbfb0ecdb5fbc499bdaf807f878c1cac2bfd36f3e535b6f03883884f4ddadd53c09ee2319dbcf820f5cbdecffbfb8330ad5a1ecca742c97b221aab63f464c
   languageName: node
   linkType: hard
 
