@@ -15,7 +15,9 @@ export default function MainMenu({ className }: { className?: string }) {
         <MenuTitle />
       </header>
       <ul className="grow py-4">
-        <MenuItem href="/portal/blogs"># Blogs</MenuItem>
+        <MenuItem href="/portal/blogs" activeHref="/portal/blogs-add">
+          # Blogs
+        </MenuItem>
       </ul>
       <footer className="flex items-center gap-2">
         <Avatar>

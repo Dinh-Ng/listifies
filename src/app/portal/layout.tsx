@@ -40,7 +40,7 @@ export default function PortalLayout({
         </div>
       )}
       <div className="overflow-auto px-4 py-2">
-        <h1 className="pb-4">Hello, User-Name</h1>
+        <h1 className="pb-4 text-4xl">Hello, User-Name</h1>
         {children}
       </div>
     </div>
