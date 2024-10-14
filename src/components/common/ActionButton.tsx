@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler, ReactElement } from 'react'
 import { BiLoader } from 'react-icons/bi'
 
 interface Props {
@@ -13,10 +13,10 @@ const ActionButton: FC<Props> = ({
   busy = false,
   title,
   onClick,
-}): JSX.Element => {
+}): ReactElement => {
   return (
     <button
-      className="text-highlight-dark bg-action flex w-full items-center justify-center space-x-2 rounded px-6 py-2 font-semibold transition duration-100 hover:scale-[0.97]"
+      className="flex w-full items-center justify-center space-x-2 rounded bg-black px-6 py-2 font-semibold text-white transition duration-100 hover:scale-[0.97]"
       onClick={onClick}
       disabled={disabled}
     >

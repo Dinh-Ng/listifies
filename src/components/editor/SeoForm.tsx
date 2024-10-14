@@ -104,7 +104,7 @@ const Input: FC<{
         name={name}
         value={value}
         placeholder={placeholder}
-        className={classnames(commonInput, 'italic pl-10')}
+        className={classnames(commonInput, 'italic pl-12')}
         onChange={onChange}
       />
     </label>

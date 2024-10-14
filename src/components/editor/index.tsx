@@ -10,7 +10,8 @@ import { EditorContent, getMarkRange, Range, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import axios from 'axios'
 
-import ActionButton from '../common/ActionButton'
+import ActionButton from '@/components/common/ActionButton'
+
 import GalleryModal, { ImageSelectionResult } from './GalleryModal'
 import EditLink from './Link/EditLink'
 import SEOForm, { SeoResult } from './SeoForm'

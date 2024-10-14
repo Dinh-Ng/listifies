@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lintFix": "next lint --fix",
-    "checkTS": "node_modules/.bin/tsc --noEmit"
+    "checkTS": "node_modules/.bin/tsc --noEmit",
+    "git-push": "git push origin master && git push repoWork master"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.0",
