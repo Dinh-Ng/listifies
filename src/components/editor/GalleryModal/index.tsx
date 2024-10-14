@@ -14,8 +14,8 @@ export interface ImageSelectionResult {
 interface Props extends ModalProps {
   images: { src: string }[]
   uploading?: boolean
-  onFileSelect(): void
-  onSelect(): void
+  onFileSelect(image: File): void
+  onSelect(result: ImageSelectionResult): void
 }
 
 const GalleryModal: FC<Props> = ({

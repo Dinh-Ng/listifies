@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { FC, ReactElement } from 'react'
 import { BsCardImage } from 'react-icons/bs'
 
 import Image from './Image'
 
 interface Props {
   images: { src: string }[]
-  onSelect(): void
+  onSelect(src: string): void
   uploading?: boolean
   selectedImage?: string
 }
@@ -15,7 +15,7 @@ const Gallery: FC<Props> = ({
   uploading = false,
   selectedImage = '',
   onSelect,
-}): JSX.Element => {
+}): ReactElement => {
   return (
     <div className="flex flex-wrap">
       {uploading && (
@@ -31,7 +31,6 @@ const Gallery: FC<Props> = ({
               src={src}
               selected={selectedImage === src}
               onClick={() => onSelect(src)}
-              alt="upload-image"
             />
           </div>
         )

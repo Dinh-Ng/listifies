@@ -4,7 +4,7 @@ import Button from '../ToolBar/Button'
 import LinkForm, { linkOption } from './LinkForm'
 
 interface Props {
-  onSubmit(): void;
+  onSubmit(link: linkOption): void;
 }
 
 const InsertLink: FC<Props> = ({ onSubmit }): JSX.Element => {

@@ -3,7 +3,7 @@ import { BsYoutube } from 'react-icons/bs'
 import Button from '../ToolBar/Button'
 
 interface Props {
-  onSubmit(): void;
+  onSubmit(link: string): void;
 }
 
 const EmbedYoutube: FC<Props> = ({ onSubmit }): JSX.Element => {
