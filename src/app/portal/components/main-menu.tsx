@@ -15,6 +15,9 @@ export default function MainMenu({ className }: { className?: string }) {
         <MenuTitle />
       </header>
       <ul className="grow py-4">
+        <MenuItem href="/portal/leads" activeHref="/portal/blogs-add">
+          # Leads
+        </MenuItem>
         <MenuItem href="/portal/blogs" activeHref="/portal/blogs-add">
           # Blogs
         </MenuItem>
