@@ -1,12 +1,7 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
 import Editor from '@/components/editor'
-import SelectImageButton from '@/components/SelectImageButton'
-
-import PortalBase from '../base'
+import PortalBase from '@/app/portal/base'
 
 const AddBlog = () => {
   return (

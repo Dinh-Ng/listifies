@@ -1,7 +1,7 @@
 type Props = {
   title: string
   children: React.ReactNode
-  rightAction: React.ReactNode
+  rightAction?: React.ReactNode
 }
 
 const PortalBase = ({ title, children, rightAction }: Props) => {
