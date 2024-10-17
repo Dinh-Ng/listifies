@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu'
 import { CirclePlus, Ellipsis } from 'lucide-react'
 
@@ -89,7 +90,9 @@ const Leads = () => {
       </DropdownMenu>
 
       <Button variant="ghost">
-        <CirclePlus />
+        <Link href="/portal/leads-add">
+          <CirclePlus />
+        </Link>
       </Button>
     </div>
   )
