@@ -24,6 +24,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import SaveButton from '@/app/portal/components/save-button'
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
 
@@ -69,7 +70,7 @@ const LeadAdd = () => {
           <NoteItem />
           <NoteItem />
 
-          <Button className='mt-10'>Save</Button>
+          <Button className="mt-10">Save</Button>
         </div>
       </SheetContent>
     </Sheet>
@@ -141,7 +142,9 @@ const LeadAdd = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <input type="submit" value="Save" />
+          <div className="flex justify-end">
+            <SaveButton />
+          </div>
         </form>
       </div>
     </PortalBase>
