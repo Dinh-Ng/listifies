@@ -1,23 +1,10 @@
 import Link from 'next/link'
-import { CirclePlus, Ellipsis } from 'lucide-react'
+import { CirclePlus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { columnsBlog, dataBlog } from '@/app/portal/blogs/data'
+import { DataTable } from '@/app/portal/components/data-table'
 
 const Blogs = () => {
   const TAB = {
@@ -53,52 +40,9 @@ const Blogs = () => {
 }
 
 const TabContent = ({ value }: { value: string }) => {
-  const data = [
-    { title: 'blog post title', status: 'Unpublished', updated: '10/12/2024' },
-    {
-      title: 'blog post title',
-      status: 'Inquiring to Publish',
-      updated: '10/12/2024',
-    },
-    { title: 'blog post title', status: 'Published', updated: '10/12/2024' },
-  ]
   return (
     <TabsContent value={value}>
-      <Table>
-        <TableCaption />
-
-        <TableHeader>
-          <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Updated</TableHead>
-            <TableHead className="w-[100px]" />
-          </TableRow>
-        </TableHeader>
-
-        <TableBody>
-          {data.map((item, index) => (
-            <TableRow key={index}>
-              <TableCell className="font-medium">{item.title}</TableCell>
-              <TableCell>{item.status}</TableCell>
-              <TableCell>{item.updated}</TableCell>
-              <TableCell className="">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Ellipsis />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                    <DropdownMenuItem>Billing</DropdownMenuItem>
-                    <DropdownMenuItem>Team</DropdownMenuItem>
-                    <DropdownMenuItem>Subscription</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <DataTable data={dataBlog} columns={columnsBlog} />
     </TabsContent>
   )
 }
