@@ -10,23 +10,23 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export type Leads = {
+export type Listings = {
   id: number
-  name: string
-  phone: string
+  address: string
+  price: string
   status: string
   updated: string
-  edited: boolean
+  edited: string
 }
 
-export const columnLead: ColumnDef<Leads>[] = [
+export const columnListings: ColumnDef<Listings>[] = [
   {
-    accessorKey: 'name',
-    header: 'Name',
+    accessorKey: 'address',
+    header: 'Address',
   },
   {
-    accessorKey: 'phone',
-    header: 'Phone',
+    accessorKey: 'price',
+    header: 'Price',
   },
   {
     accessorKey: 'status',
@@ -46,9 +46,10 @@ export const columnLead: ColumnDef<Leads>[] = [
             <Ellipsis />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>Add Note</DropdownMenuItem>
+            <DropdownMenuItem>Add Open House</DropdownMenuItem>
             <DropdownMenuItem>Update Status</DropdownMenuItem>
-            <DropdownMenuItem>Edit Lead</DropdownMenuItem>
+            <DropdownMenuItem>Edit Listing</DropdownMenuItem>
+            <DropdownMenuItem>View Listing</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
@@ -56,22 +57,22 @@ export const columnLead: ColumnDef<Leads>[] = [
   },
 ]
 
-export const dataLead = [
+export const dataListing = [
   {
-    name: 'Lead',
-    phone: '+0987654321',
+    address: '',
+    price: '',
     status: 'New',
     updated: '10/12/2024',
   },
   {
-    name: 'Lead',
-    phone: '+0987654321',
+    address: '',
+    price: '',
     status: 'Interesting',
     updated: '10/12/2024',
   },
   {
-    name: 'Lead',
-    phone: '+0987654321',
+    address: '',
+    price: '',
     status: 'Closed',
     updated: '10/12/2024',
   },

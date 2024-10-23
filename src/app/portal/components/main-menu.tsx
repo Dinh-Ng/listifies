@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Separator } from '@/components/ui/separator'
 
 import MenuItem from './menu-item'
 import MenuTitle from './menu-title'
@@ -15,12 +16,27 @@ export default function MainMenu({ className }: { className?: string }) {
         <MenuTitle />
       </header>
       <ul className="grow py-4">
+        <p className="p-2">Listings</p>
+        <MenuItem
+          href="/portal/listings/home-for-sales"
+          activeHref="/portal/leads-add"
+        >
+          # Home for Sales
+        </MenuItem>
+        <MenuItem
+          href="/portal/listings/home-for-lease"
+          activeHref="/portal/leads-add"
+        >
+          # Home for Lease
+        </MenuItem>
+        <Separator className="bg-zinc-300" />
         <MenuItem href="/portal/leads" activeHref="/portal/leads-add">
           # Leads
         </MenuItem>
         <MenuItem href="/portal/blogs" activeHref="/portal/blogs-add">
           # Blogs
         </MenuItem>
+        <Separator className="bg-zinc-300" />
       </ul>
       <footer className="flex items-center gap-2">
         <Avatar>
