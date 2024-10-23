@@ -42,6 +42,7 @@ const Blogs = () => {
 const TabContent = ({ value }: { value: string }) => {
   return (
     <TabsContent value={value}>
+      {/* @ts-ignore */}
       <DataTable data={dataBlog} columns={columnsBlog} />
     </TabsContent>
   )

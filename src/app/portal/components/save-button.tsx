@@ -22,7 +22,7 @@ const SaveButton = () => {
           </Button>
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="right">
+        <DropdownMenuContent align="end">
           <DropdownMenuItem>Publish</DropdownMenuItem>
           <DropdownMenuItem>Archive</DropdownMenuItem>
         </DropdownMenuContent>

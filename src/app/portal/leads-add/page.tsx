@@ -28,14 +28,21 @@ import SaveButton from '@/app/portal/components/save-button'
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
 
+type LeadInput = {
+  firstName: string
+  lastName: string
+  phone: string
+  email: string
+}
+
 const LeadAdd = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm<LeadInput>()
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: LeadInput) => {
     alert(JSON.stringify(data))
   }
 
@@ -105,11 +112,11 @@ const LeadAdd = () => {
 
           <label>Phone Number</label>
           <input {...register('phone', { required: true })} />
-          {errors.phone?.types === 'required' && <p>This field is required</p>}
+          {errors.phone?.type === 'required' && <p>This field is required</p>}
 
           <label>Email</label>
           <input {...register('email', { required: true })} />
-          {errors.phone?.email === 'required' && <p>This field is required</p>}
+          {errors.phone?.type === 'required' && <p>This field is required</p>}
 
           <label>Status</label>
 
