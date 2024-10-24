@@ -66,7 +66,7 @@ const BaseListings = ({ title }: Props) => {
       </DropdownMenu>
 
       <Button variant="ghost">
-        <Link href="/portal/leads-add">
+        <Link href="/portal/listings-add">
           <CirclePlus />
         </Link>
       </Button>
