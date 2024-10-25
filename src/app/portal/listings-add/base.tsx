@@ -10,8 +10,7 @@ import Step2 from '@/app/portal/listings-add/Step2'
 import Step3 from '@/app/portal/listings-add/Step3'
 import Step4 from '@/app/portal/listings-add/Step4'
 
-const ListingAdd = () => {
-  const isSale = true
+const ListingAdd = ({isSale}: {isSale: boolean}) => {
   const [data, setData] = useState({
     name: '',
     email: '',

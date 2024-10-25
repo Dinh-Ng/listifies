@@ -1,7 +1,7 @@
 import BaseListings from '@/app/portal/listings/base'
 
 const Listings = () => {
-  return <BaseListings title="HOME FOR SALE" />
+  return <BaseListings isSale />
 }
 
 export default Listings

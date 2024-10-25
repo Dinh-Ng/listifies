@@ -13,17 +13,18 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import PortalBase from '@/app/portal/base'
+import DataTable from '@/app/portal/components/data-table'
 
-import { DataTable } from '../components/data-table'
 import { columnListings, dataListing } from './data'
 
 type Props = {
   title: string
+  isSale: boolean
 }
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
 
-const BaseListings = ({ title }: Props) => {
+const BaseListings = ({ isSale }: Props) => {
   const [showListed, setShowListed] = useState<Checked>(true)
   const [showPending, setShowPending] = useState<Checked>(true)
   const [showUnavailable, setShowUnavailable] = useState<Checked>(true)
@@ -66,7 +67,7 @@ const BaseListings = ({ title }: Props) => {
       </DropdownMenu>
 
       <Button variant="ghost">
-        <Link href="/portal/listings-add">
+        <Link href={`/portal/listings-add/${isSale ? 'sales' : 'lease'}`}>
           <CirclePlus />
         </Link>
       </Button>
@@ -74,7 +75,7 @@ const BaseListings = ({ title }: Props) => {
   )
 
   return (
-    <PortalBase title={title} rightAction={<RightAction />}>
+    <PortalBase title={`HOME FOR ${isSale ? 'SALES' : 'LEASE'}`} rightAction={<RightAction />}>
       <div>
         {/* @ts-ignore */}
         <DataTable data={dataListing} columns={columnListings} />
