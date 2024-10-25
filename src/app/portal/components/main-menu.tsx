@@ -17,16 +17,10 @@ export default function MainMenu({ className }: { className?: string }) {
       </header>
       <ul className="grow py-4">
         <p className="p-2">Listings</p>
-        <MenuItem
-          href="/portal/listings/home-for-sales"
-          activeHref="/portal/leads-add"
-        >
+        <MenuItem href="/portal/listings/home-for-sales">
           # Home for Sales
         </MenuItem>
-        <MenuItem
-          href="/portal/listings/home-for-lease"
-          activeHref="/portal/leads-add"
-        >
+        <MenuItem href="/portal/listings/home-for-lease">
           # Home for Lease
         </MenuItem>
         <Separator className="bg-zinc-300" />
@@ -37,6 +31,9 @@ export default function MainMenu({ className }: { className?: string }) {
           # Blogs
         </MenuItem>
         <Separator className="bg-zinc-300" />
+        <MenuItem href="/portal/user">
+          # User
+        </MenuItem>
       </ul>
       <footer className="flex items-center gap-2">
         <Avatar>
