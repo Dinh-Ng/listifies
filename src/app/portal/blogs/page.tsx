@@ -4,7 +4,7 @@ import { CirclePlus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { columnsBlog, dataBlog } from '@/app/portal/blogs/data'
-import { DataTable } from '@/app/portal/components/data-table'
+import DataTable from '@/app/portal/components/data-table'
 
 const Blogs = () => {
   const TAB = {

@@ -18,7 +18,6 @@ import DataTable from '@/app/portal/components/data-table'
 import { columnListings, dataListing } from './data'
 
 type Props = {
-  title: string
   isSale: boolean
 }
 

@@ -13,8 +13,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import PortalBase from '@/app/portal/base'
+import DataTable from '@/app/portal/components/data-table'
 
-import { DataTable } from '../components/data-table'
 import { columnLead, dataLead } from './data'
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
