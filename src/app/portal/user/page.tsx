@@ -25,7 +25,7 @@ const User = () => {
             </TabsList>
 
             <Button asChild variant="ghost">
-              <Link href="/portal/blogs-add">
+              <Link href="/portal/user-add">
                 <CirclePlus />
               </Link>
             </Button>

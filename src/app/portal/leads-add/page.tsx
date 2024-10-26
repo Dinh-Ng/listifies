@@ -149,9 +149,7 @@ const LeadAdd = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <div className="flex justify-end">
-            <SaveButton />
-          </div>
+          <SaveButton />
         </form>
       </div>
     </PortalBase>

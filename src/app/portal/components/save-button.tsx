@@ -10,7 +10,7 @@ import {
 
 const SaveButton = () => {
   return (
-    <div className="flex">
+    <div className="flex justify-end">
       <Button type="submit" className="mr-px rounded-r-none px-8">
         Save
       </Button>
