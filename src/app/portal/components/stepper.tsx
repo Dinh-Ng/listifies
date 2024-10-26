@@ -12,7 +12,7 @@ const Stepper = ({ steps = 4, currentStep = 1 }: StepperProps) => {
         <Fragment key={step}>
           <div className="flex items-center">
             <div
-              className={`flex size-10 items-center justify-center rounded-full border-2 ${
+              className={`flex size-10 items-center justify-center rounded-full border-2 transition-colors duration-300 ${
                 step === currentStep + 1
                   ? 'border-gray-800 bg-gray-800 text-white'
                   : 'border-gray-300 bg-white text-gray-800'

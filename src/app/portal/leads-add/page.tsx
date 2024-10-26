@@ -85,7 +85,7 @@ const LeadAdd = () => {
 
   return (
     <PortalBase title="Add / Edit Lead" rightAction={<RightAction />}>
-      <div>
+      <div className="mx-auto max-w-2xl">
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>First Name</label>
           <input
