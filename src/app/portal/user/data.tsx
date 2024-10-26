@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { ColumnDef } from '@tanstack/react-table'
 import { Ellipsis } from 'lucide-react'
 

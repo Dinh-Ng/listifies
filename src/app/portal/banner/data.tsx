@@ -10,18 +10,23 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export type Blog = {
+export type Banner = {
   id: number
   title: string
+  description: string
   status: string
   updated: string
   edited?: boolean
 }
 
-export const columnsBlog: ColumnDef<Blog>[] = [
+export const columnsBanner: ColumnDef<Banner>[] = [
   {
     accessorKey: 'title',
     header: 'Title',
+  },
+  {
+    accessorKey: 'description',
+    header: 'Description',
   },
   {
     accessorKey: 'status',
@@ -41,8 +46,8 @@ export const columnsBlog: ColumnDef<Blog>[] = [
             <Ellipsis />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>Update Post</DropdownMenuItem>
-            <DropdownMenuItem>View Post</DropdownMenuItem>
+            <DropdownMenuItem>Update Status</DropdownMenuItem>
+            <DropdownMenuItem>Edit</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
@@ -50,20 +55,16 @@ export const columnsBlog: ColumnDef<Blog>[] = [
   },
 ]
 
-export const dataBlog = [
+export const dataBanner = [
   {
-    title: 'blog post title',
-    status: 'Unpublished',
+    title: 'First time home Buyer',
+    description: ' Grand up to $7,500',
+    status: 'Active',
     updated: '10/12/2024',
   },
   {
-    title: 'blog post title',
-    status: 'Inquiring to Publish',
-    updated: '10/12/2024',
-  },
-  {
-    title: 'blog post title',
-    status: 'Published',
+    title: '',
+    status: 'Inactive',
     updated: '10/12/2024',
   },
 ]
