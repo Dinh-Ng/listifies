@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import Link from 'next/link'
 
 export type Question = {
   id: number
@@ -41,7 +42,7 @@ export const columnsQuestion: ColumnDef<Question>[] = [
             <Ellipsis />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>Answer</DropdownMenuItem>
+            <DropdownMenuItem asChild><Link href={'/portal/question-answer'}>Answer</Link></DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

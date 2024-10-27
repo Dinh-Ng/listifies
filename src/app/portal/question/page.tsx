@@ -1,7 +1,3 @@
-import Link from 'next/link'
-import { CirclePlus } from 'lucide-react'
-
-import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import DataTable from '@/app/portal/components/data-table'
 import { columnsQuestion, dataQuestion } from '@/app/portal/question/data'
@@ -23,12 +19,6 @@ const Question = () => {
               <TabsTrigger value={TAB.all}>{TAB.all}</TabsTrigger>
               <TabsTrigger value={TAB.unanswered}>{TAB.unanswered}</TabsTrigger>
             </TabsList>
-
-            <Button asChild variant="ghost">
-              <Link href="/portal/blogs-add">
-                <CirclePlus />
-              </Link>
-            </Button>
           </div>
         </div>
 
