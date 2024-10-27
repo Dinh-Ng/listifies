@@ -34,6 +34,9 @@ export default function MainMenu({ className }: { className?: string }) {
         <MenuItem href="/portal/question"># Questions</MenuItem>
         <MenuItem href="/portal/banner"># Banner</MenuItem>
         <MenuItem href="/portal/user"># User</MenuItem>
+
+        <Separator className="bg-zinc-300" />
+        <MenuItem href="/portal/profile"># Profile</MenuItem>
       </ul>
       <footer className="flex items-center gap-2">
         <Avatar>

@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import PortalBase from '@/app/portal/base'
