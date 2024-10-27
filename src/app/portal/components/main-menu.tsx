@@ -31,6 +31,7 @@ export default function MainMenu({ className }: { className?: string }) {
           # Blogs
         </MenuItem>
         <Separator className="bg-zinc-300" />
+        <MenuItem href="/portal/question"># Questions</MenuItem>
         <MenuItem href="/portal/banner"># Banner</MenuItem>
         <MenuItem href="/portal/user"># User</MenuItem>
       </ul>
