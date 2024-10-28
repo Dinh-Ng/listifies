@@ -7,7 +7,7 @@ type Props = {
 const PortalBase = ({ title, children, rightAction }: Props) => {
   return (
     <div className="rounded p-2 shadow-lg">
-      <div className="flex justify-between">
+      <div className="grid lg:flex justify-between">
         <h1 className="text-2xl font-bold">{title}</h1>
         {rightAction}
       </div>
