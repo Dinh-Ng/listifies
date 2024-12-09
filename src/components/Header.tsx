@@ -69,12 +69,12 @@ const Header = ({ href }: { href: linkType }) => {
   const UserMenu = () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="flex items-center space-x-2">
+        <Button variant="secondary" className="flex items-center space-x-2">
           <Avatar className="size-8">
             <AvatarImage src={user?.photoURL || ''} alt={user?.displayName || 'User avatar'} />
             <AvatarFallback><User className="size-4" /></AvatarFallback>
           </Avatar>
-          <span className='text-white'>{user?.displayName || user?.email}</span>
+          <span className=''>{user?.displayName || user?.email}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
@@ -131,9 +131,9 @@ const Header = ({ href }: { href: linkType }) => {
               <AddListingButton />
             </div>
 
-            <Button asChild variant="outline">
+            {/* <Button asChild variant="outline">
               <Link href="/portal/">Portal</Link>
-            </Button>
+            </Button> */}
 
             {user ? (
               <UserMenu />
