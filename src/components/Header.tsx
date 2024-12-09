@@ -4,7 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LinkMapping, linkType } from '@/asset/constant'
 import logo from '@/asset/img/listifies_logo.svg'
-import { Menu } from 'lucide-react'
+import { Menu, User } from 'lucide-react'
+import { useAuth } from '@/contexts/AuthContext'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -23,11 +24,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const Header = ({ href }: { href: linkType }) => {
+  const { user, signOut } = useAuth()
+
   const isCurrentHref = (hrefCheck: string) => {
     return href === hrefCheck
   }
+  console.log('first', process.env.NEXT_PUBLIC_TEST)
 
   const LinkItem = ({ href }: { href: linkType }) => (
     <Link
@@ -61,6 +66,29 @@ const Header = ({ href }: { href: linkType }) => {
     </DropdownMenu>
   )
 
+  const UserMenu = () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="flex items-center space-x-2">
+          <Avatar className="size-8">
+            <AvatarImage src={user?.photoURL || ''} alt={user?.displayName || 'User avatar'} />
+            <AvatarFallback><User className="size-4" /></AvatarFallback>
+          </Avatar>
+          <span className='text-white'>{user?.displayName || user?.email}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem asChild>
+          <Link href="/portal">Profile</Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={signOut}>
+          Logout
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+
   return (
     <header className="bg-background sticky top-0 z-10 grid w-full grid-cols-3 p-2 shadow-lg">
       <Sheet>
@@ -72,7 +100,7 @@ const Header = ({ href }: { href: linkType }) => {
         </SheetTrigger>
         <SheetContent
           side="left"
-          className="border-none bg-zinc-800"
+          className="overflow-scroll border-none bg-zinc-800"
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
           <SheetHeader>
@@ -106,6 +134,14 @@ const Header = ({ href }: { href: linkType }) => {
             <Button asChild variant="outline">
               <Link href="/portal/">Portal</Link>
             </Button>
+
+            {user ? (
+              <UserMenu />
+            ) : (
+              <Button asChild variant="outline">
+                <Link href="/auth/">Login</Link>
+              </Button>
+            )}
           </nav>
         </SheetContent>
       </Sheet>
