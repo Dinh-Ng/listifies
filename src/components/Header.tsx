@@ -127,9 +127,9 @@ const Header = ({ href }: { href: linkType }) => {
             </div>
             <LinkItem href="/update" />
             <LinkItem href="/loan-solution" />
-            <div className="lg:hidden">
+            {/* <div className="lg:hidden">
               <AddListingButton />
-            </div>
+            </div> */}
 
             {/* <Button asChild variant="outline">
               <Link href="/portal/">Portal</Link>
@@ -156,9 +156,9 @@ const Header = ({ href }: { href: linkType }) => {
           />
         </Link>
       </div>
-      <div className="hidden justify-end lg:flex">
+      {/* <div className="hidden justify-end lg:flex">
         <AddListingButton />
-      </div>
+      </div> */}
     </header>
   )
 }
