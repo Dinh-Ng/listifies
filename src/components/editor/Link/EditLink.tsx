@@ -13,7 +13,7 @@ const EditLink: FC<Props> = ({ editor }): JSX.Element => {
 
   const handleOnLinkOpenClick = useCallback(() => {
     const { href } = editor.getAttributes('link')
-    if (href) {
+    if (href && typeof window !== 'undefined') {
       window.open(href, '_blank')
     }
   }, [editor])
