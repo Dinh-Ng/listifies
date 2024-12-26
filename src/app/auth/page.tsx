@@ -1,21 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 
 // import { Button } from '../../components/ui/button'
-// import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import Login from '@/components/auth/Login'
 import Register from '@/components/auth/Register'
 
-const Button = dynamic(() => import('../../components/ui/button'), { ssr: false })
+// const Button = dynamic(() => import('../../components/ui/button'), { ssr: false })
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true)
-
-  if (typeof window === 'undefined') {
-    return <div />
-  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
