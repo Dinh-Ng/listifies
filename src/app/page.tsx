@@ -5,6 +5,7 @@ import Script from 'next/script'
 import { news } from '@/asset/data/fakeData'
 import { ChevronDown } from 'lucide-react'
 
+import { useToast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
@@ -118,6 +119,7 @@ export default function Home() {
 const HeroSection = () => {
   const [status, setStatus] = useState<'sale' | 'lease'>('sale')
   const [isOpen, setIsOpen] = useState(false)
+  const { toast } = useToast()
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -127,6 +129,13 @@ const HeroSection = () => {
   }
   const handleLeave = () => {
     timeoutRef.current = setTimeout(() => setIsOpen(false), 300)
+  }
+
+  const onSearch = () => {
+    toast({
+      title: 'Search',
+      content: 'Searching...',
+    })
   }
 
   return (
@@ -194,7 +203,9 @@ const HeroSection = () => {
         <div className="mt-4 flex flex-row items-center justify-between rounded bg-white p-2 lg:mt-0 lg:rounded-sm">
           <Input className="" placeholder="All Locations" />
           {/* <div className="flex flex-row justify-end p-2"> */}
-          <Button className="ml-2 bg-zinc-800 lg:w-[8vw]">Search</Button>
+          <Button className="ml-2 bg-zinc-800 lg:w-[8vw]" onClick={onSearch}>
+            Search
+          </Button>
           {/* </div> */}
         </div>
       </div>

@@ -11,10 +11,10 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 export type Blog = {
-  id: number
-  title: string
-  status: string
-  updated: string
+  id: string
+  title?: string
+  status?: string
+  updated?: string
   edited?: boolean
 }
 
@@ -28,8 +28,15 @@ export const columnsBlog: ColumnDef<Blog>[] = [
     header: 'Status',
   },
   {
-    accessorKey: 'updated',
+    accessorKey: 'updatedAt',
     header: 'Updated',
+    cell: ({ row }) => {
+      const updatedAt = row?.getValue('updatedAt')
+      if (updatedAt instanceof Date) {
+        return <div>{updatedAt.toLocaleDateString('en-US')}</div>
+      }
+      return <div>Invalid Date</div>
+    },
   },
   {
     accessorKey: 'edited',

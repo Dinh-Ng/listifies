@@ -1,9 +1,15 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useAuth } from '@/contexts/AuthContext'
+import { getUserBlogs } from '@/utils/firestore'
 import { CirclePlus } from 'lucide-react'
 
+import { useToast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { columnsBlog, dataBlog } from '@/app/portal/blogs/data'
+import { Blog, columnsBlog } from '@/app/portal/blogs/data'
 import DataTable from '@/app/portal/components/data-table'
 
 const Blogs = () => {
@@ -40,10 +46,45 @@ const Blogs = () => {
 }
 
 const TabContent = ({ value }: { value: string }) => {
+  const [blogs, setBlogs] = useState<Blog[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  const { user } = useAuth()
+  const { toast } = useToast()
+  console.log(blogs)
+
+  useEffect(() => {
+    if (user) {
+      fetchUserBlogs()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
+
+  const fetchUserBlogs = async () => {
+    if (!user) return
+    setLoading(true)
+    try {
+      const userBlogs = await getUserBlogs(user.uid)
+      setBlogs(userBlogs)
+    } catch (error) {
+      console.error('Error fetching user blogs:', error)
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch blogs. Please try again.',
+        variant: 'destructive',
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <TabsContent value={value}>
-      {/* @ts-ignore */}
-      <DataTable data={dataBlog} columns={columnsBlog} />
+      {loading ? (
+        <div className="animate-pulse text-center text-3xl font-bold">Loading...</div>
+      ) : (
+        // @ts-ignore
+        <DataTable data={blogs} columns={columnsBlog} />
+      )}
     </TabsContent>
   )
 }
