@@ -31,7 +31,7 @@ export const columnsBlog: ColumnDef<Blog>[] = [
     accessorKey: 'updatedAt',
     header: 'Updated',
     cell: ({ row }) => {
-      const updatedAt = row?.getValue('updatedAt')
+      const updatedAt = row?.getValue('updatedAt').toDate()
       if (updatedAt instanceof Date) {
         return <div>{updatedAt.toLocaleDateString('en-US')}</div>
       }
