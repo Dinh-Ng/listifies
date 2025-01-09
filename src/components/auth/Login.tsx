@@ -3,7 +3,11 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
-import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from 'firebase/auth'
 import { FcGoogle } from 'react-icons/fc'
 
 import { Button } from '@/components/ui/button'
@@ -47,8 +51,20 @@ export default function Login() {
 
   const handleGoogleLogin = async () => {
     try {
-      await signInWithPopup(auth, googleProvider)
+      const result = await signInWithPopup(auth, googleProvider)
       setError(null)
+
+      const user = result.user
+
+      // Check if display name is missing
+      if (!user.displayName) {
+        // Fetch display name from Google profile
+        const displayName = user.providerData[0]?.displayName || 'User'
+
+        // Update user profile with display name
+        await updateProfile(user, { displayName })
+      }
+
       router.push('/') // Redirect to the main page
     } catch (error) {
       setError('Failed to log in with Google. Please try again.')
