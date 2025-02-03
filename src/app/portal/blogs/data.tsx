@@ -14,8 +14,10 @@ export type Blog = {
   id: string
   title?: string
   status?: string
-  updated?: string
+  updatedAt?: string
   edited?: boolean
+  userName?: string
+  tags?: string
 }
 
 export const columnsBlog: ColumnDef<Blog>[] = [
@@ -31,7 +33,7 @@ export const columnsBlog: ColumnDef<Blog>[] = [
     accessorKey: 'updatedAt',
     header: 'Updated',
     cell: ({ row }) => {
-      const updatedAt = row?.getValue('updatedAt').toDate()
+      const updatedAt = (row.getValue('updatedAt') as { toDate(): Date })?.toDate()
       if (updatedAt instanceof Date) {
         return <div>{updatedAt.toLocaleDateString('en-US')}</div>
       }

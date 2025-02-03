@@ -1,5 +1,6 @@
 export const blogs = [
   {
+    id: 0,
     title: 'Beautiful Family House for Rent',
     author: 'John Doe',
     date: 'July 1st, 2024',
@@ -10,6 +11,7 @@ export const blogs = [
     height: 100,
   },
   {
+    id: 1,
     title: 'Modern Apartment in the City Center',
     author: 'Jane Smith',
     date: 'June 20th, 2024',
@@ -20,6 +22,7 @@ export const blogs = [
     height: 100,
   },
   {
+    id: 2,
     title: 'Cozy Cottage Near the Beach',
     author: 'Alice Johnson',
     date: 'June 15th, 2024',
