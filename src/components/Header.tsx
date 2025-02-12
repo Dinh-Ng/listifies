@@ -4,9 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LinkMapping, linkType } from '@/asset/constant'
 import logo from '@/asset/img/listifies_logo.svg'
-import { Menu, User } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
+import { Menu, User } from 'lucide-react'
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -24,7 +25,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const Header = ({ href }: { href: linkType }) => {
   const { user, signOut } = useAuth()
@@ -32,7 +32,6 @@ const Header = ({ href }: { href: linkType }) => {
   const isCurrentHref = (hrefCheck: string) => {
     return href === hrefCheck
   }
-  console.log('first', process.env.NEXT_PUBLIC_TEST)
 
   const LinkItem = ({ href }: { href: linkType }) => (
     <Link
@@ -71,10 +70,15 @@ const Header = ({ href }: { href: linkType }) => {
       <DropdownMenuTrigger asChild>
         <Button variant="secondary" className="flex items-center space-x-2">
           <Avatar className="size-8">
-            <AvatarImage src={user?.photoURL || ''} alt={user?.displayName || 'User avatar'} />
-            <AvatarFallback><User className="size-4" /></AvatarFallback>
+            <AvatarImage
+              src={user?.photoURL || ''}
+              alt={user?.displayName || 'User avatar'}
+            />
+            <AvatarFallback>
+              <User className="size-4" />
+            </AvatarFallback>
           </Avatar>
-          <span className=''>{user?.displayName || user?.email}</span>
+          <span className="">{user?.displayName || user?.email}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
@@ -82,9 +86,7 @@ const Header = ({ href }: { href: linkType }) => {
           <Link href="/portal">Profile</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={signOut}>
-          Logout
-        </DropdownMenuItem>
+        <DropdownMenuItem onClick={signOut}>Logout</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

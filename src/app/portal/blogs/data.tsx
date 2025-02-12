@@ -16,8 +16,10 @@ export type Blog = {
   status?: string
   updatedAt?: string
   edited?: boolean
+  userId?: string
   userName?: string
   tags?: string
+  content?: string
 }
 
 export const columnsBlog: ColumnDef<Blog>[] = [
