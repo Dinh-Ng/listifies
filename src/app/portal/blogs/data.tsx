@@ -1,6 +1,7 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
+import { Timestamp } from 'firebase/firestore'
 import { Ellipsis } from 'lucide-react'
 
 import {
@@ -14,7 +15,7 @@ export type Blog = {
   id: string
   title?: string
   status?: string
-  updatedAt?: string
+  updatedAt?: Timestamp
   edited?: boolean
   userId?: string
   userName?: string
@@ -35,7 +36,9 @@ export const columnsBlog: ColumnDef<Blog>[] = [
     accessorKey: 'updatedAt',
     header: 'Updated',
     cell: ({ row }) => {
-      const updatedAt = (row.getValue('updatedAt') as { toDate(): Date })?.toDate()
+      const updatedAt = (
+        row.getValue('updatedAt') as { toDate(): Date }
+      )?.toDate()
       if (updatedAt instanceof Date) {
         return <div>{updatedAt.toLocaleDateString('en-US')}</div>
       }

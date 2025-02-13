@@ -24,7 +24,7 @@ import { Blog } from '@/app/portal/blogs/data'
 import BlogItem from '../components/blogItem'
 
 export default function DetailBlog() {
-  const params = useParams()
+  const params = useParams<{slug: string}>()
   const { toast } = useToast()
 
   const [blog, setBlog] = useState<Blog>()
@@ -41,7 +41,7 @@ export default function DetailBlog() {
 
       console.log('blogDetail :>> ', blogDetail)
       setBlog(blogDetail)
-      fetchSameBlog(blogDetail?.userId)
+      await fetchSameBlog(blogDetail?.userId)
     } catch (error) {
       toast({
         title: 'Error',
@@ -51,7 +51,7 @@ export default function DetailBlog() {
     }
   }
 
-  const fetchSameBlog = async (userId) => {
+  const fetchSameBlog = async (userId: string) => {
     try {
       const blogList = await getFirstThreeUserBlogs(userId)
       console.log('blogList :>> ', blogList)
@@ -122,9 +122,9 @@ export default function DetailBlog() {
                         src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
                       />
                       <article className="prose max-w-none rounded p-4">
-                        <div
-                          dangerouslySetInnerHTML={{ __html: blog?.content }}
-                        />
+                        {blog?.content && <div
+                          dangerouslySetInnerHTML={{__html: blog?.content}}
+                        />}
                       </article>
                     </div>
 
