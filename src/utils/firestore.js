@@ -45,6 +45,19 @@ export const getUserBlogs = async (userId) => {
 }
 
 // Get a single blog by ID
+/**
+ * @typedef {Object} Blog
+ * @property {string} id
+ * @property {string} userId
+ * @property {string} [title]
+ * @property {string} [content]
+ */
+
+/**
+ * Get a single blog by ID
+ * @param {string} blogId
+ * @returns {Promise<Blog>}
+ */
 export const getBlogById = async (blogId) => {
   try {
     if (!blogId) {
