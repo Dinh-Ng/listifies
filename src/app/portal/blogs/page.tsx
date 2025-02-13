@@ -9,6 +9,7 @@ import { CirclePlus } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import Loading from '@/components/Loading'
 import { Blog, columnsBlog } from '@/app/portal/blogs/data'
 import DataTable from '@/app/portal/components/data-table'
 
@@ -80,7 +81,7 @@ const TabContent = ({ value }: { value: string }) => {
   return (
     <TabsContent value={value}>
       {loading ? (
-        <div className="animate-pulse text-center text-3xl font-bold">Loading...</div>
+        <Loading />
       ) : (
         // @ts-ignore
         <DataTable data={blogs} columns={columnsBlog} />

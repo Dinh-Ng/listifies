@@ -1,21 +1,71 @@
+'use client'
+
 /* eslint-disable @next/next/no-img-element */
 // import houseImg from '@/asset/img/house.webp'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { blogs } from '@/asset/data/fakeData'
+import { getBlogById, getFirstThreeUserBlogs } from '@/utils/firestore'
 import { ChevronLeft } from 'lucide-react'
 
+import { useToast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Banner from '@/components/banner'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
+import Loading from '@/components/Loading'
+import NavigationSection from '@/components/NavigationSection'
 import Transition from '@/components/Transition'
+import { Blog } from '@/app/portal/blogs/data'
 
 import BlogItem from '../components/blogItem'
-import NavigationSection from '@/components/NavigationSection'
 
 export default function DetailBlog() {
+  const params = useParams()
+  const { toast } = useToast()
+
+  const [blog, setBlog] = useState<Blog>()
+  const [blogLists, setBlogLists] = useState<Blog[]>()
+
+  useEffect(() => {
+    fetchDetailBlog()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const fetchDetailBlog = async () => {
+    try {
+      const blogDetail = await getBlogById(params.slug)
+
+      console.log('blogDetail :>> ', blogDetail)
+      setBlog(blogDetail)
+      fetchSameBlog(blogDetail?.userId)
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch blogs. Please try again.',
+        variant: 'destructive',
+      })
+    }
+  }
+
+  const fetchSameBlog = async (userId) => {
+    try {
+      const blogList = await getFirstThreeUserBlogs(userId)
+      console.log('blogList :>> ', blogList)
+      setBlogLists(blogList)
+    } catch (err) {
+      console.error('Error fetching user blogs:', err)
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch blogs. Please try again.',
+        variant: 'destructive',
+      })
+    }
+  }
+
   return (
     <Layout>
       <Header href={'/blogs'} />
@@ -44,75 +94,52 @@ export default function DetailBlog() {
               </Button>
               <div className="grid items-start gap-4 md:grid-cols-1 lg:grid-cols-[2fr_7fr_3fr]">
                 <NavigationSection currentHref={'/blogs'} />
-                <div>
-                  <div className="rounded border-none bg-white shadow-lg">
-                    <div className="mb-6 p-4">
-                      <h1 className="mb-2 line-clamp-1 text-lg font-bold lg:text-xl">
-                        Blog Detail Page - Post Title
-                      </h1>
-                      <div className="text-base font-bold text-[#505050]">
-                        <p className="font-bold ">
-                          Author | Published mm-dd-yyyy
-                        </p>
-                        <p className="">#tagName</p>
+                {blog ? (
+                  <div>
+                    <div className="rounded border-none bg-white shadow-lg">
+                      <div className="mb-6 p-4">
+                        <h1 className="mb-2 line-clamp-1 text-lg font-bold lg:text-xl">
+                          {blog?.title}
+                        </h1>
+                        <div className="text-base font-bold text-[#505050]">
+                          <p className="font-bold ">
+                            {`${blog.userName} | Published ${blog?.updatedAt?.toDate()?.toLocaleDateString()}`}
+                          </p>
+                          <div className="flex">
+                            {blog?.tags
+                              ?.split(',')
+                              ?.map((item: any, index: number) => (
+                                <p className="mr-1" key={index}>
+                                  {'#' + item?.trim()}
+                                </p>
+                              ))}
+                          </div>
+                        </div>
                       </div>
+                      <img
+                        alt="hero_img"
+                        className="w-full"
+                        src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+                      />
+                      <article className="prose max-w-none rounded p-4">
+                        <div
+                          dangerouslySetInnerHTML={{ __html: blog?.content }}
+                        />
+                      </article>
                     </div>
-                    <img
-                      alt="hero_img"
-                      className="w-full"
-                      src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
-                    />
-                    <article className="prose max-w-none rounded p-4">
-                      <p>
-                        <strong>Lorem Ipsum</strong> is simply dummy text of the
-                        printing and typesetting industry. Lorem Ipsum has been
-                        the industry&apos;s standard dummy text ever since the
-                        1500s, when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book. It has
-                      </p>
-                      <p>
-                        It is a long established fact that a reader will be
-                        distracted by the readable content of a page when
-                        looking at its layout. The point of using Lorem Ipsum is
-                        that it has a more-or-less normal distribution of
-                        letters, as opposed to using Content here, content
-                        here`, making it look like readable English. Many
-                        desktop publishing packages and web page editors now use
-                        Lorem Ipsum as their default model text, and a search
-                        for lorem ipsum will uncover many web sites still in
-                        their infancy. Various versions have evolved over the
-                        years, sometimes by accident, sometimes on purpose
-                        (injected humour and the like).
-                      </p>
-                      <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply
-                        random text. It has roots in a piece of classical Latin
-                        literature from 45 BC, making it over 2000 years old.
-                        Richard McClintock, a Latin professor at Hampden-Sydney
-                        College in Virginia, looked up one of the more obscure
-                        Latin words, consectetur, from a Lorem Ipsum passage,
-                        and going through the cites of the word in classical
-                        literature, discovered the undoubtable source. Lorem
-                        Ipsum comes from sections 1.10.32 and 1.10.33 of de
-                        Finibus Bonorum et Malorum (The Extremes of Good and
-                        Evil) by Cicero, written in 45 BC. This book is a
-                        treatise on the theory of ethics, very popular during
-                        the Renaissance. The first line of Lorem Ipsum, Lorem
-                        ipsum dolor sit amet.., comes from a line in section
-                        1.10.32.
-                      </p>
-                    </article>
-                  </div>
 
-                  <div className="mt-10">
-                    <p className="mb-4 text-lg font-bold">
-                      This author’s Blog Posts
-                    </p>
-                    {blogs.map((item, index) => (
-                      <BlogItem blog={item} index={index} />
-                    ))}
+                    <div className="mt-10">
+                      <p className="mb-4 text-lg font-bold">
+                        This author’s Blog Posts
+                      </p>
+                      {blogLists?.map((item) => (
+                        <BlogItem blog={item} key={item.id} />
+                      ))}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <Loading />
+                )}
                 <AuthorInfo />
               </div>
             </div>

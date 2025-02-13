@@ -1,17 +1,54 @@
-/* eslint-disable @next/next/no-img-element */
-import { blogs } from '@/asset/data/fakeData'
+'use client'
 
+/* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react'
+import { useAuth } from '@/contexts/AuthContext'
+import { getUserBlogs } from '@/utils/firestore'
+
+import { useToast } from '@/hooks/use-toast'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { FilterMenu } from '@/components/_Header'
 import Banner from '@/components/banner'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
+import Loading from '@/components/Loading'
 import NavigationSection from '@/components/NavigationSection'
 import Transition from '@/components/Transition'
 import BlogItem from '@/app/blogs/components/blogItem'
+import { Blog } from '@/app/portal/blogs/data'
 
 export default function Blogs() {
+  const [blogs, setBlogs] = useState<Blog[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  const { user } = useAuth()
+  const { toast } = useToast()
+
+  useEffect(() => {
+    if (user) {
+      fetchUserBlogs()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
+
+  const fetchUserBlogs = async () => {
+    if (!user) return
+    setLoading(true)
+    try {
+      const userBlogs = await getUserBlogs(user.uid)
+      setBlogs(userBlogs)
+    } catch (error) {
+      console.error('Error fetching user blogs:', error)
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch blogs. Please try again.',
+        variant: 'destructive',
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <Layout>
       <Header href="/blogs" />
@@ -34,9 +71,13 @@ export default function Blogs() {
                 className="border-none shadow-lg"
               >
                 <CardContent className="p-4">
-                  {blogs.map((blog, index) => (
-                    <BlogItem blog={blog} key={index} index={index} />
-                  ))}
+                  {loading ? (
+                    <Loading />
+                  ) : (
+                    blogs.map((blog, index) => (
+                      <BlogItem blog={blog} key={index} />
+                    ))
+                  )}
                 </CardContent>
               </Card>
             </div>

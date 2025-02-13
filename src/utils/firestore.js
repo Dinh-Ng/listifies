@@ -5,6 +5,8 @@ import {
   doc,
   getDoc,
   getDocs,
+  limit,
+  orderBy,
   query,
   updateDoc,
   where,
@@ -13,10 +15,11 @@ import {
 import { db } from '../app/firebase'
 
 // Add a new blog
-export const addBlog = async (userId, blogData) => {
+export const addBlog = async (userId, userName, blogData) => {
   try {
     const docRef = await addDoc(collection(db, 'blogs'), {
       userId,
+      userName,
       ...blogData,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -44,6 +47,9 @@ export const getUserBlogs = async (userId) => {
 // Get a single blog by ID
 export const getBlogById = async (blogId) => {
   try {
+    if (!blogId) {
+      throw new Error('Blog ID is undefined or empty')
+    }
     const docRef = doc(db, 'blogs', blogId)
     const docSnap = await getDoc(docRef)
     if (docSnap.exists()) {
@@ -52,7 +58,7 @@ export const getBlogById = async (blogId) => {
       throw new Error('Blog not found')
     }
   } catch (error) {
-    console.error('Error getting blog: ', error)
+    console.error('Error getting blog:', error)
     throw error
   }
 }
@@ -77,6 +83,31 @@ export const deleteBlog = async (blogId) => {
     await deleteDoc(doc(db, 'blogs', blogId))
   } catch (error) {
     console.error('Error deleting blog: ', error)
+    throw error
+  }
+}
+
+// Get the first 3 blogs for a user
+export const getFirstThreeUserBlogs = async (userId) => {
+  try {
+    console.log('Fetching first 3 blogs for user:', userId)
+    if (!userId) {
+      throw new Error('User ID is undefined or empty')
+    }
+    const q = query(
+      collection(db, 'blogs'),
+      where('userId', '==', userId),
+      orderBy('createdAt', 'desc'),
+      limit(3)
+    )
+    const querySnapshot = await getDocs(q)
+    const blogs = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }))
+    console.log('Fetched blogs:', blogs)
+    return blogs
+  } catch (error) {
     throw error
   }
 }

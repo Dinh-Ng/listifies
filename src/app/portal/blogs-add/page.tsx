@@ -14,7 +14,7 @@ const AddBlog = () => {
   const onSubmit = async (post: any) => {
     console.log('submit', post)
     try {
-      await addBlog(user?.uid, post)
+      await addBlog(user?.uid, user?.displayName, post)
       toast({
         title: 'Success',
         description: 'Blog post created successfully!',
