@@ -2,8 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react'
-import { useAuth } from '@/contexts/AuthContext'
-import { getUserBlogs } from '@/utils/firestore'
+import { getAllBlogs } from '@/utils/firestore'
 
 import { useToast } from '@/hooks/use-toast'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -21,21 +20,17 @@ import { Blog } from '@/app/portal/blogs/data'
 export default function Blogs() {
   const [blogs, setBlogs] = useState<Blog[]>([])
   const [loading, setLoading] = useState<boolean>(true)
-  const { user } = useAuth()
   const { toast } = useToast()
 
   useEffect(() => {
-    if (user) {
-      fetchUserBlogs()
-    }
+    fetchUserBlogs()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user])
+  }, [])
 
   const fetchUserBlogs = async () => {
-    if (!user) return
     setLoading(true)
     try {
-      const userBlogs = await getUserBlogs(user.uid)
+      const userBlogs = await getAllBlogs()
       setBlogs(userBlogs)
     } catch (error) {
       console.error('Error fetching user blogs:', error)

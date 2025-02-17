@@ -5,7 +5,6 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { blogs } from '@/asset/data/fakeData'
 import { getBlogById, getFirstThreeUserBlogs } from '@/utils/firestore'
 import { ChevronLeft } from 'lucide-react'
 

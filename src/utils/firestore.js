@@ -32,6 +32,18 @@ export const addBlog = async (userId, userName, blogData) => {
   }
 }
 
+// Get all blogs
+export const getAllBlogs = async () => {
+  try {
+    const q = query(collection(db, 'blogs'))
+    const querySnapshot = await getDocs(q)
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+  } catch (error) {
+    console.error('Error getting user blogs: ', error)
+    throw error
+  }
+}
+
 // Get all blogs for a user
 export const getUserBlogs = async (userId) => {
   try {

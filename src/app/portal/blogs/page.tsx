@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useAuth } from '@/contexts/AuthContext'
-import { getUserBlogs } from '@/utils/firestore'
+import { getAllBlogs } from '@/utils/firestore'
 import { CirclePlus } from 'lucide-react'
 
 import { useToast } from '@/hooks/use-toast'
@@ -49,22 +48,19 @@ const Blogs = () => {
 const TabContent = ({ value }: { value: string }) => {
   const [blogs, setBlogs] = useState<Blog[]>([])
   const [loading, setLoading] = useState<boolean>(true)
-  const { user } = useAuth()
   const { toast } = useToast()
   console.log(blogs)
 
   useEffect(() => {
-    if (user) {
-      fetchUserBlogs()
-    }
+    fetchUserBlogs()
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user])
+  }, [])
 
   const fetchUserBlogs = async () => {
-    if (!user) return
     setLoading(true)
     try {
-      const userBlogs = await getUserBlogs(user.uid)
+      const userBlogs = await getAllBlogs()
       setBlogs(userBlogs)
     } catch (error) {
       console.error('Error fetching user blogs:', error)
