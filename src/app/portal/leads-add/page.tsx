@@ -7,13 +7,15 @@ import PortalBase from '@/app/portal/base'
 import '@/app/portal/leads-add/styles.css'
 
 import { useState } from 'react'
-import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu'
+import { addLead } from '@/utils/firestore'
 
+import { useToast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
@@ -26,13 +28,12 @@ import {
 } from '@/components/ui/sheet'
 import SaveButton from '@/app/portal/components/save-button'
 
-type Checked = DropdownMenuCheckboxItemProps['checked']
-
 type LeadInput = {
   firstName: string
   lastName: string
   phone: string
   email: string
+  status?: string
 }
 
 const LeadAdd = () => {
@@ -42,21 +43,26 @@ const LeadAdd = () => {
     formState: { errors },
   } = useForm<LeadInput>()
 
-  const onSubmit = (data: LeadInput) => {
-    alert(JSON.stringify(data))
+  const { toast } = useToast()
+
+  const onSubmit = async (data: LeadInput) => {
+    const newData = { ...data, status }
+    try {
+      await addLead(newData)
+      toast({
+        title: 'Success',
+        description: 'Lead added successfully!',
+      })
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to add lead. Please try again.',
+        variant: 'destructive',
+      })
+    }
   }
 
-  const [showNew, setShowNew] = useState<Checked>(true)
-  const [showInterested, setShowInterested] = useState<Checked>(true)
-  const [showClosed, setShowClosed] = useState<Checked>(true)
-
-  const filterTitle = [
-    showNew ? 'New' : '',
-    showInterested ? 'Interested' : '',
-    showClosed ? 'Closed' : '',
-  ]
-    .filter(Boolean)
-    .join(' / ')
+  const [status, setStatus] = useState('')
 
   const RightAction = () => (
     <Sheet>
@@ -111,8 +117,16 @@ const LeadAdd = () => {
           )}
 
           <label>Phone Number</label>
-          <input {...register('phone', { required: true })} />
+          <input
+            {...register('phone', { required: true, pattern: /^[2-9]\d{9}$/ })}
+          />
           {errors.phone?.type === 'required' && <p>This field is required</p>}
+          {errors.phone?.type === 'pattern' && (
+            <p>
+              Please enter a valid US phone number (10 digits, starting with
+              2-9)
+            </p>
+          )}
 
           <label>Email</label>
           <input {...register('email', { required: true })} />
@@ -123,29 +137,20 @@ const LeadAdd = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className="select-status" variant="outline">
-                {filterTitle}
+                {status || 'Select Status'}
               </Button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent>
-              <DropdownMenuCheckboxItem
-                checked={showNew}
-                onCheckedChange={setShowNew}
-              >
-                New
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={showInterested}
-                onCheckedChange={setShowInterested}
-              >
-                Interested
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={showClosed}
-                onCheckedChange={setShowClosed}
-              >
-                Closed
-              </DropdownMenuCheckboxItem>
+              <DropdownMenuRadioGroup value={status} onValueChange={setStatus}>
+                <DropdownMenuRadioItem value="News">News</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Interested">
+                  Interested
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="Closed">
+                  Closed
+                </DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
 

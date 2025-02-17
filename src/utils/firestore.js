@@ -136,3 +136,27 @@ export const getFirstThreeUserBlogs = async (userId) => {
     throw error
   }
 }
+
+// Add a new lead
+export const addLead = async (data
+) => {
+  try {
+    const docRef = await addDoc(collection(db, 'leads'), data)
+    return docRef.id
+  } catch (error) {
+    console.error('Error adding lead: ', error)
+    throw error
+  }
+}
+
+// Get all leads
+export const getAllLeads = async () => {
+  try {
+    const q = query(collection(db, 'leads'))
+    const querySnapshot = await getDocs(q)
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+  } catch (error) {
+    console.error('Error getting leads: ', error)
+    throw error
+  }
+}

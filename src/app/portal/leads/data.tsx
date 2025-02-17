@@ -10,19 +10,20 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export type Leads = {
-  id: number
-  name: string
-  phone: string
-  status: string
-  updated: string
-  edited: boolean
+export type LeadsType = {
+  id: string
+  name?: string
+  phone?: string
+  status?: string
+  updated?: string
+  edited?: boolean
 }
 
-export const columnLead: ColumnDef<Leads>[] = [
+export const columnLead: ColumnDef<LeadsType>[] = [
   {
     accessorKey: 'name',
     header: 'Name',
+    accessorFn: (row) => `${row.firstName} ${row.lastName}`,
   },
   {
     accessorKey: 'phone',
