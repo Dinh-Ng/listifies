@@ -14,10 +14,11 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import Loading from '@/components/Loading'
 import PortalBase from '@/app/portal/base'
 import DataTable from '@/app/portal/components/data-table'
 
-import { columnLead, dataLead, LeadsType } from './data'
+import { columnLead, LeadsType } from './data'
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
 
@@ -102,7 +103,11 @@ const Leads = () => {
     <PortalBase title="My Leads" rightAction={<RightAction />}>
       <div>
         {/* @ts-ignore */}
-        <DataTable data={leads} columns={columnLead} />
+        {loading ? (
+          <Loading />
+        ) : (
+          <DataTable data={leads} columns={columnLead} />
+        )}
       </div>
     </PortalBase>
   )

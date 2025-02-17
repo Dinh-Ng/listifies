@@ -17,6 +17,8 @@ export type LeadsType = {
   status?: string
   updated?: string
   edited?: boolean
+  firstName?: string
+  lastName?: string
 }
 
 export const columnLead: ColumnDef<LeadsType>[] = [
