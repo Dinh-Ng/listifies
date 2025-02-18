@@ -138,8 +138,7 @@ export const getFirstThreeUserBlogs = async (userId) => {
 }
 
 // Add a new lead
-export const addLead = async (data
-) => {
+export const addLead = async (data) => {
   try {
     const docRef = await addDoc(collection(db, 'leads'), data)
     return docRef.id
@@ -150,9 +149,13 @@ export const addLead = async (data
 }
 
 // Get all leads
-export const getAllLeads = async () => {
+export const getAllLeads = async (status) => {
   try {
-    const q = query(collection(db, 'leads'))
+    console.log('status', status)
+    let q = query(collection(db, 'leads'))
+    if (status && status.trim() !== '') {
+      q = query(collection(db, 'leads'), where('status', '==', status.trim()))
+    }
     const querySnapshot = await getDocs(q)
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
   } catch (error) {

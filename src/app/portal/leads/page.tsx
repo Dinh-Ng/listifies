@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getAllLeads } from '@/utils/firestore'
-import { DropdownMenuCheckboxItemProps } from '@radix-ui/react-dropdown-menu'
 import { CirclePlus } from 'lucide-react'
 
 import { useToast } from '@/hooks/use-toast'
@@ -20,28 +19,24 @@ import DataTable from '@/app/portal/components/data-table'
 
 import { columnLead, LeadsType } from './data'
 
-type Checked = DropdownMenuCheckboxItemProps['checked']
-
 const Leads = () => {
-  const [showNew, setShowNew] = useState<Checked>(true)
-  const [showInterested, setShowInterested] = useState<Checked>(true)
-  const [showClosed, setShowClosed] = useState<Checked>(true)
-
   const [leads, setLeads] = useState<LeadsType[]>([])
   const [loading, setLoading] = useState(true)
+  const [status, setStatus] = useState('')
 
   const { toast } = useToast()
 
   useEffect(() => {
     fetchLeads()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status])
 
   const fetchLeads = async () => {
+    console.log('refetching')
     setLoading(true)
     try {
       // fetch leads
-      const fetchLead = await getAllLeads()
+      const fetchLead = await getAllLeads(status)
       setLeads(fetchLead)
     } catch (error) {
       console.error(error)
@@ -55,37 +50,42 @@ const Leads = () => {
     }
   }
 
-  const filterTitle = [
-    showNew ? 'New' : '',
-    showInterested ? 'Interested' : '',
-    showClosed ? 'Closed' : '',
-  ]
-    .filter(Boolean)
-    .join(' / ')
+  const filterStatus = useCallback(
+    (statusSelected: string) => {
+      if (status === statusSelected) {
+        setStatus('')
+      } else {
+        setStatus(statusSelected)
+      }
+    },
+    [status]
+  )
 
   const RightAction = () => (
     <div className="flex">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">{filterTitle}</Button>
+          <Button variant="outline">
+            {status || 'New / Interested / Closed'}
+          </Button>
         </DropdownMenuTrigger>
 
         <DropdownMenuContent>
           <DropdownMenuCheckboxItem
-            checked={showNew}
-            onCheckedChange={setShowNew}
+            checked={status === 'New'}
+            onCheckedChange={() => filterStatus('New')}
           >
             New
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            checked={showInterested}
-            onCheckedChange={setShowInterested}
+            checked={status === 'Interested'}
+            onCheckedChange={() => filterStatus('Interested')}
           >
             Interested
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            checked={showClosed}
-            onCheckedChange={setShowClosed}
+            checked={status === 'Closed'}
+            onCheckedChange={() => filterStatus('Closed')}
           >
             Closed
           </DropdownMenuCheckboxItem>
