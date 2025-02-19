@@ -32,7 +32,6 @@ const Leads = () => {
   }, [status])
 
   const fetchLeads = async () => {
-    console.log('refetching')
     setLoading(true)
     try {
       // fetch leads

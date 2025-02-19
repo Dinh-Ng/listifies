@@ -151,7 +151,6 @@ export const addLead = async (data) => {
 // Get all leads
 export const getAllLeads = async (status) => {
   try {
-    console.log('status', status)
     let q = query(collection(db, 'leads'))
     if (status && status.trim() !== '') {
       q = query(collection(db, 'leads'), where('status', '==', status.trim()))
