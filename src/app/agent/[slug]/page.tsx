@@ -66,14 +66,14 @@ export default function Agent() {
                     Home For Lease
                   </Button>
                 </div>
-                {listings.map((item, index) => (
+                {/* {listings.map((item, index) => (
                   <ListingItem
                     key={index}
                     index={index}
                     listing={item}
                     href={isForSale ? '/home-for-sale' : '/home-for-lease'}
                   />
-                ))}
+                ))} */}
               </div>
 
               <AuthorInfo />

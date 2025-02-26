@@ -29,7 +29,7 @@ const Leads = () => {
   useEffect(() => {
     fetchLeads()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status])
+  }, [])
 
   const fetchLeads = async () => {
     setLoading(true)

@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { LinkMapping, linkType } from '@/asset/constant'
-import { listings } from '@/asset/data/fakeData'
+import { getAllHomesForLease, getAllHomesForSale } from '@/utils/firestore'
 import { ChevronDown } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -19,13 +19,34 @@ import Banner from '@/components/banner'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
+import Loading from '@/components/Loading'
 import NavigationSection from '@/components/NavigationSection'
 import Transition from '@/components/Transition'
 import ListingItem from '@/app/listings/components/listingItem'
 
+import { ListingType } from '../portal/listings/base'
+
 const Listings = ({ href }: { href: linkType }) => {
   const locationList = ['All Locations', 'Vietnam', 'USA', 'Spain']
   const [location, setLocation] = useState(locationList[0])
+  const [listings, setListings] = useState<ListingType[]>()
+  const isSale = href === '/home-for-sale'
+
+  console.log('listings :>> ', listings)
+  const fetchData = async () => {
+    let data
+    if (isSale) {
+      data = await getAllHomesForSale()
+    } else {
+      data = await getAllHomesForLease()
+    }
+    setListings(data)
+  }
+
+  useEffect(() => {
+    fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Layout>
@@ -70,9 +91,18 @@ const Listings = ({ href }: { href: linkType }) => {
                 className="border-none shadow-lg"
               >
                 <CardContent className="p-4">
-                  {listings.map((listing, index) => (
-                    <ListingItem listing={listing} key={index} index={index} href={href} />
-                  ))}
+                  {listings ? (
+                    listings.map((listing, index) => (
+                      <ListingItem
+                        listing={listing}
+                        key={index}
+                        index={index}
+                        href={href}
+                      />
+                    ))
+                  ) : (
+                    <Loading />
+                  )}
                 </CardContent>
               </Card>
             </div>

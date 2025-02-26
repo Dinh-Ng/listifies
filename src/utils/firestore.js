@@ -162,3 +162,49 @@ export const getAllLeads = async (status) => {
     throw error
   }
 }
+
+// Get all home for sales
+export const getAllHomesForSale = async () => {
+  try {
+    const q = query(collection(db, 'homesForSale'))
+    const querySnapshot = await getDocs(q)
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+  } catch (error) {
+    console.error('Error getting homes for sale: ', error)
+    throw error
+  }
+}
+
+// Add a new home for sales
+export const addHomeForSale = async (data) => {
+  try {
+    const docRef = await addDoc(collection(db, 'homesForSale'), data)
+    return docRef.id
+  } catch (error) {
+    console.error('Error adding home for sale: ', error)
+    throw error
+  }
+}
+
+// Get all home for leases
+export const getAllHomesForLease = async () => {
+  try {
+    const q = query(collection(db, 'homesForLease'))
+    const querySnapshot = await getDocs(q)
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+  } catch (error) {
+    console.error('Error getting homes for lease: ', error)
+    throw error
+  }
+}
+
+// Add a new home for lease
+export const addHomeForLease = async (data) => {
+  try {
+    const docRef = await addDoc(collection(db, 'homesForLease'), data)
+    return docRef.id
+  } catch (error) {
+    console.error('Error adding home for lease: ', error)
+    throw error
+  }
+}

@@ -1,6 +1,22 @@
 import Link from 'next/link'
 
-export default function Step4() {
+import { Step1Data } from './Step1'
+import { Step2Data } from './Step2'
+import { Step3Data } from './Step3'
+
+interface Step4Props {
+  step1Data: Step1Data
+  step2Data: Step2Data
+  step3Data: Step3Data
+  isSale: boolean
+}
+
+export default function Step4({
+  step1Data,
+  step2Data,
+  step3Data,
+  isSale,
+}: Step4Props) {
   return (
     <div className="mx-auto w-full max-w-3xl rounded-lg bg-white p-6 shadow">
       <h2 className="mb-4 text-2xl font-bold">
@@ -8,22 +24,20 @@ export default function Step4() {
       </h2>
       <div className="mb-4 grid grid-cols-1 gap-6 rounded-lg bg-gray-100 p-4 md:grid-cols-3">
         <div>
-          <h3 className="mb-2 font-semibold">For Sale • $300,000</h3>
-          <p className="text-sm text-gray-600">Address, City, State zip-code</p>
+          <h3 className="mb-2 font-semibold">{`For ${isSale ? 'Sale' : 'Lease'} • $${step2Data.price}`}</h3>
+          <p className="text-sm text-gray-600">{`${step1Data.address} ${step1Data.city} ${step1Data.zip}`}</p>
           <p className="text-sm text-gray-600">#beds • #bath • ## sq feet</p>
-          <p className="text-sm text-gray-600">Ref Link</p>
+          <p className="text-sm text-gray-600">{`${step2Data.refLink}`}</p>
         </div>
         <div className="italic">
           <h3 className="mb-2 font-semibold">Open House Info</h3>
-          <p className="text-sm text-gray-600">
-            Thursday, September 20th, 2024
-          </p>
-          <p className="text-sm text-gray-600">11:00am - 01:00pm</p>
+          <p className="text-sm text-gray-600">{step3Data.date}</p>
+          <p className="text-sm text-gray-600">{step3Data.time}</p>
         </div>
         <div className="italic">
           <h3 className="mb-2 font-semibold">Contact Person</h3>
-          <p className="text-sm text-gray-600">Phung Pham</p>
-          <p className="text-sm text-gray-600">(123) 465-9876</p>
+          <p className="text-sm text-gray-600">{step3Data.name}</p>
+          <p className="text-sm text-gray-600">{step3Data.phone}</p>
         </div>
       </div>
       <p className="mb-4 text-sm text-gray-600">
