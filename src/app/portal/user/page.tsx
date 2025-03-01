@@ -16,7 +16,7 @@ const User = () => {
     <div className="rounded p-2 shadow-lg">
       <Tabs defaultValue={TAB.all}>
         <div className="flex justify-between">
-          <h1 className="text-2xl font-bold">Blogs</h1>
+          <h1 className="text-2xl font-bold">Users</h1>
 
           <div className="flex">
             <TabsList>

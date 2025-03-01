@@ -186,6 +186,25 @@ export const addHomeForSale = async (data) => {
   }
 }
 
+// Get a single home for sale
+export const getHomeForSaleById = async (homeId) => {
+  try {
+    if (!homeId) {
+      throw new Error('Home ID is undefined or empty')
+    }
+    const docRef = doc(db, 'homesForSale', homeId)
+    const docSnap = await getDoc(docRef)
+    if (docSnap.exists()) {
+      return { id: docSnap.id, ...docSnap.data() }
+    } else {
+      throw new Error('Home not found')
+    }
+  } catch (error) {
+    console.error('Error getting home for sale:', error)
+    throw error
+  }
+}
+
 // Get all home for leases
 export const getAllHomesForLease = async () => {
   try {

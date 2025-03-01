@@ -96,7 +96,7 @@ const Listings = ({ href }: { href: linkType }) => {
                       <ListingItem
                         listing={listing}
                         key={index}
-                        index={index}
+                        index={listing.id}
                         href={href}
                       />
                     ))

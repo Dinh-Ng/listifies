@@ -5,7 +5,7 @@ import { linkType } from '@/asset/constant'
 import { ListingType } from '@/app/portal/listings/base'
 
 type Props = {
-  index: number
+  index: string
   listing: ListingType
   href: linkType
 }
