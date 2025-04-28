@@ -39,42 +39,17 @@ export default function Home() {
           <HeroSection />
 
           {/* Content */}
-          <div className="mx-auto grid w-full grow items-start gap-6 p-4 md:grid-cols-1 lg:w-10/12 lg:grid-cols-[2fr_7fr_3fr]">
-            <NavigationSection currentHref="/" />
+          <div className="mx-auto grid w-full grow items-start gap-6 p-4 md:grid-cols-1 lg:w-10/12 lg:grid-cols-[9fr_3fr]">
+            {/* <NavigationSection currentHref="/" /> */}
             <div className="grid gap-4">
               <div className="flex items-center justify-between">
-                <h1 className={'text-xl font-semibold'}>Updates</h1>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant={'outline'} className="justify-between">
-                      {language}
-                      <ChevronDown />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-[150px]" align="end">
-                    <DropdownMenuRadioGroup
-                      value={language}
-                      onValueChange={setLanguage}
-                    >
-                      {languageList.map((item) => (
-                        <DropdownMenuRadioItem key={item} value={item}>
-                          {item}
-                        </DropdownMenuRadioItem>
-                      ))}
-                    </DropdownMenuRadioGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <h1 className={'text-xl font-semibold'}>Featured Properties</h1>
               </div>
               <Card
                 x-chunk="dashboard-04-chunk-2"
                 className="border-none shadow-lg"
               >
-                <CardHeader className="p-4 lg:p-6">
-                  <p>Today 08/08/2024</p>
-                  {/* {[listings[0]].map((listing, index) => (
-                    <ListingItem listing={listing} index={index} />
-                  ))} */}
-                </CardHeader>
+                <CardHeader className="p-4 lg:p-6" />
 
                 <CardContent className="grid gap-10">
                   {news.map((item, index) => (
@@ -131,83 +106,57 @@ const HeroSection = () => {
     timeoutRef.current = setTimeout(() => setIsOpen(false), 300)
   }
 
-  const onSearch = () => {
-    toast({
-      title: 'Search',
-      content: 'Searching...',
-    })
-  }
-
   return (
     <div
-      className="flex h-[50vh] w-full flex-col items-center justify-center bg-cover bg-center"
+      className="flex h-[50vh] w-full flex-col items-start justify-center bg-cover bg-center px-8 md:px-16 lg:px-24"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914')",
       }}
     >
-      <p className="mb-4 text-2xl font-bold text-white">I AM LOOKING AT</p>
-      <div
-        className={
-          'grid items-center rounded lg:grid-cols-2 lg:rounded-sm gap-1 ' +
-          'lg:w-1/2 justify-center md:w-[70%] w-[90%]'
-        }
-      >
+      <p className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">Your Home. Your Mortgage. Our Priority</p>
+      <div className="w-full max-w-xs">
         <DropdownMenu open={isOpen}>
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className={
-                'h-[56px] w-full justify-start rounded bg-white lg:rounded-sm ' +
-                'hover:bg-white focus-visible:ring-0 focus-visible:ring-offset-0 ' +
-                'w-[90vw] md:w-[70vw] lg:w-full'
-              }
+              className="h-[56px] w-full justify-between rounded bg-zinc-800/80 text-white hover:bg-zinc-800/90 hover:text-white focus-visible:ring-0 focus-visible:ring-offset-0"
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
             >
+              <span className="text-lg">I want to</span>
               <ChevronDown className="size-5" />
-              <span className="">
-                {status === 'sale' ? 'Home for Sale' : 'Home for Lease'}
-              </span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             align="start"
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
-            className="w-[90vw] md:w-[70vw] lg:w-[20vw]"
+            className="w-full border-zinc-700 bg-zinc-800/90 text-white"
           >
-            {/* <DropdownMenuItem>Home for Sale</DropdownMenuItem>
-            <DropdownMenuItem>Home for Lease</DropdownMenuItem> */}
             <DropdownMenuCheckboxItem
               checked={status === 'sale'}
               onCheckedChange={() => {
                 setStatus('sale')
                 handleLeave()
               }}
+              className="focus:bg-zinc-700 focus:text-white"
             >
               Home for Sale
             </DropdownMenuCheckboxItem>
-            <DropdownMenuSeparator />
+            <DropdownMenuSeparator className="bg-zinc-700" />
             <DropdownMenuCheckboxItem
               checked={status === 'lease'}
               onCheckedChange={() => {
                 setStatus('lease')
                 handleLeave()
               }}
+              className="focus:bg-zinc-700 focus:text-white"
             >
               Home for Lease
             </DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <div className="mt-4 flex flex-row items-center justify-between rounded bg-white p-2 lg:mt-0 lg:rounded-sm">
-          <Input className="" placeholder="All Locations" />
-          {/* <div className="flex flex-row justify-end p-2"> */}
-          <Button className="ml-2 bg-zinc-800 lg:w-[8vw]" onClick={onSearch}>
-            Search
-          </Button>
-          {/* </div> */}
-        </div>
       </div>
     </div>
   )
